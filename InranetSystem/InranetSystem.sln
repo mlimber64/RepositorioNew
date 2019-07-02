@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InranetSystem", "InranetSys
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Capa Entidad", "1.Capa Entidad", "{4A79D93B-B170-45B1-ACA2-2963BF447E86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaEntidad", "CapaEntidad\CapaEntidad.csproj", "{A31870FB-3333-41C7-AC1D-38775DC497F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,9 +19,16 @@ Global
 		{CD380F6B-B739-43B9-8D65-715BAB1818A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD380F6B-B739-43B9-8D65-715BAB1818A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD380F6B-B739-43B9-8D65-715BAB1818A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A31870FB-3333-41C7-AC1D-38775DC497F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A31870FB-3333-41C7-AC1D-38775DC497F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A31870FB-3333-41C7-AC1D-38775DC497F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A31870FB-3333-41C7-AC1D-38775DC497F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A31870FB-3333-41C7-AC1D-38775DC497F2} = {4A79D93B-B170-45B1-ACA2-2963BF447E86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9291B9C-4A9F-4C08-93A6-847FF86DD1F8}
