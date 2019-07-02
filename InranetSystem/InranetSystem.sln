@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InranetSystem", "InranetSystem\InranetSystem.csproj", "{CD380F6B-B739-43B9-8D65-715BAB1818A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Capa Entidad", "1.Capa Entidad", "{4A79D93B-B170-45B1-ACA2-2963BF447E86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD380F6B-B739-43B9-8D65-715BAB1818A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD380F6B-B739-43B9-8D65-715BAB1818A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD380F6B-B739-43B9-8D65-715BAB1818A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD380F6B-B739-43B9-8D65-715BAB1818A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9291B9C-4A9F-4C08-93A6-847FF86DD1F8}
+	EndGlobalSection
+EndGlobal
