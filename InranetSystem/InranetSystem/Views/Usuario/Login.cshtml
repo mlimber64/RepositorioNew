@@ -1,0 +1,125 @@
+﻿@model CapaEntidad.Usuario
+
+@{
+     Layout = null;
+}
+<html lang="es" class="translated-ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gentelella Alela!  |</title>
+
+    <!-- Bootstrap -->
+    <link href="../../../Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../../../Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../../../Content/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="../../../Content/vendors/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../../../Content/build/css/custom.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+</head>
+
+<body class="login">
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+
+        <div class="login_wrapper">
+            @using (Html.BeginForm("Login", "Usuario", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="animate form login_form">
+                    <section class="login_content">
+                        <form>
+                            <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inicie Sesión</font></font></h1>
+                            <div>
+                                <input type="text" class="form-control" name="usu" id="usu" placeholder="Username" required="">
+                            </div>
+                            <br>
+                            <div>
+                                <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required="">
+                            </div>
+                            <br>
+                            <div>
+                                <button type="submit" class="btn btn-success btn-block btn-login" onclick="ValidarLogin();"><i class="entypo-login"></i>Ingresar</button>
+                                
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="separator">
+                                <p class="change_link">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            ¿Nuevo en el sitio?
+                                        </font>
+                                    </font><a href="#signup" class="to_register"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Crear una cuenta</font></font></a>
+                                </p>
+
+                                <div class="clearfix"></div>
+                                <br>
+
+                                <div>
+                                    
+                                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© 2016 Todos los derechos reservados. </font><font style="vertical-align: inherit;">Limber Mendoza! </font><font style="vertical-align: inherit;"></font><font style="vertical-align: inherit;"></font></font></p>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+
+                <div id="register" class="animate form registration_form">
+                    <section class="login_content">
+                        <form>
+                            <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Crear una cuenta</font></font></h1>
+                            <div>
+                                <input type="text" class="form-control" placeholder="Username" required="">
+                            </div>
+                            <div>
+                                <input type="email" class="form-control" placeholder="Email" required="">
+                            </div>
+                            <div>
+                                <input type="password" class="form-control" placeholder="Password" required="">
+                            </div>
+                            <div>
+                                <a class="btn btn-default submit" href="index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Enviar</font></font></a>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="separator">
+                                <p class="change_link">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            Ya eres usuario ?
+                                        </font>
+                                    </font><a href="#signin" class="to_register"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Iniciar sesión</font></font></a>
+                                </p>
+
+                                <div class="clearfix"></div>
+                                <br>
+
+                                <div>
+                                    <h1><i class="fa fa-paw"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Gentelella Alela!</font></font></h1>
+                                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">© 2016 Todos los derechos reservados. </font><font style="vertical-align: inherit;">Gentelella Alela! </font><font style="vertical-align: inherit;">Es una plantilla de Bootstrap 3. </font><font style="vertical-align: inherit;">Privacidad y Términos</font></font></p>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            }
+            </div>
+    </div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Traductor de Google"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugiere una traducción mejor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+    <div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div>
+</body>
+</html>
