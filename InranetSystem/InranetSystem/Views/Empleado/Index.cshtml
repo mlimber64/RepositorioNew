@@ -1,0 +1,141 @@
+﻿@model IEnumerable<CapaEntidad.Empleado>
+
+@{
+    //ViewBag.Title = "Index";
+    Layout = "~/Views/Plantilla/View.cshtml";
+
+}
+
+<script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+
+        $("#btnNuevo").click(function () {
+            $("#nomcre").val('');
+            $("#descre").val('');
+            $("#myModalCreate").modal({ backdrop: "static" }, { keyboard: false });
+        });
+
+        $("#myModalCreate").on("click", "#btnSendCreate", function () {
+
+            let nom = $("#nomcre").val();
+            let des = $("#descre").val();
+
+
+            let datasend = {
+                nom: nom,
+                des: des
+
+            };
+
+
+            $.ajax({
+                url:'@Url.Action("CreateMarca", "Marca")',
+                type: "POST",
+                data: JSON.stringify(datasend),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    console.log(JSON.stringify(result) + typeof result);
+                    if (result) {
+                        $("#myModalCreate").modal("hide");
+                        updateTableAjax();
+                        var content = {};
+                        content.message = 'La Marca se registro correctamente ';
+                        content.icon = 'icon la la-check';
+                        $.notify(content, prmNot3)
+
+                        setTimeout(function () {
+
+                        }, 1000);
+                    } else {
+                        console.log('Ocurrio un error');
+                    }
+
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+               });
+        });
+
+
+
+    });
+
+</script>
+<br>
+<br>
+<button id="btnNuevo">NUEVO</button>
+<br>
+<br>
+<table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+    <tr role="row">
+        <th>
+            Nombre
+        </th>
+        <th>
+            Apellido
+        </th>
+        <th>
+            Titulo
+        </th>
+        <th>
+            Fecha Nacimiento
+        </th>
+        <th>
+            Direccion
+        </th>
+        <th>
+            Ciudad
+        </th>
+        <th>
+            Telefono
+        </th>
+        <th>
+            Foto
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNaci)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                <img src="~/imagenes/@Html.DisplayFor(modelItem => item.Foto)" width="50" height="50" />
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>
+@Html.Partial("~/Views/Empleado/modalCrear.cshtml")
+
