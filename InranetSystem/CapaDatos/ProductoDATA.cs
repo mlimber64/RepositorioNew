@@ -9,7 +9,7 @@ using CapaEntidad;
 
 namespace CapaDatos
 {
-   public class UsuarioDATA
+   public class ProductoDATA
     {
         SqlConnection conexion;
         SqlCommand cmd;
@@ -17,31 +17,34 @@ namespace CapaDatos
         Conexion cn = new Conexion();
         private string errores;
 
-        public IEnumerable<Usuario> Login(string usu, string pass)
+        public IEnumerable<Producto> listarProducto()
         {
-            List<Usuario> lista = new List<Usuario>();
+            List<Producto> lista = new List<Producto>();
             try
             {
                 conexion = cn.Conectar();
-                cmd = new SqlCommand("USP_INTRANETSYSTEM_LOGIN_USUARIO", conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@insUsuario", usu);
-                cmd.Parameters.AddWithValue("@insContrasena", pass);
+                cmd = new SqlCommand("SP_INTRANETE_S_PRODUCTO", conexion);
 
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 dr = null;
                 conexion.Open();
                 dr = cmd.ExecuteReader();
+                Producto objeto = null;
                 while (dr.Read())
                 {
-                    Usuario objeto = new Usuario();
-                    objeto.email = Convert.ToString(dr["email"]);
-                    objeto.Contrasena = Convert.ToString(dr["contrasena"]);
-                    objeto.nombreCompleto = Convert.ToString(dr["nombreCompleto"]);
+                    objeto = new Producto();
+                    objeto.idProducto = Convert.ToInt32(dr["idProducto"]);
+                    objeto.codigo = Convert.ToString(dr["Codigo"]);
+                    objeto.nombre = Convert.ToString(dr["Nombre"]);
+                    objeto.precioUnitario = Convert.ToString(dr["PrecioUnitario"]);
+                    objeto.idCategoria = Convert.ToString(dr["Nombre"]);
+                    objeto.descripcion = Convert.ToString(dr["Descripcion"]);
+                    objeto.stock = Convert.ToInt32(dr["Stock"]);
+                    objeto.imagen = Convert.ToString(dr["Imagen"]);
+                    
 
                     lista.Add(objeto);
-
                 }
-                dr.Close();
             }
             catch (Exception e)
             {
@@ -58,8 +61,5 @@ namespace CapaDatos
             }
             return lista;
         }
-
-
     }
 }
-

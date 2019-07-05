@@ -1,0 +1,74 @@
+﻿@model IEnumerable<CapaEntidad.Producto>
+
+@{
+    Layout = "~/Views/Plantilla/View.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <tr class="text-danger">
+        <th>
+            #
+        </th>
+        <th>
+            Codigo
+        </th>
+        <th>
+           Nombre
+        </th>
+        <th>
+            Categoria
+        </th>
+        <th>
+            Precio Unitario
+        </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Stock
+        </th>
+        <th>
+            Imagen
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioUnitario)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imagen)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.idProducto },
+                    new { @class = "btn btn-primary" })
+            @Html.ActionLink("Ver", "Details", new { id = item.idProducto },
+                    new { @class = "btn btn-warning" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.idProducto },
+                    new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

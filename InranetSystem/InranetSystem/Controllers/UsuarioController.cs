@@ -42,8 +42,8 @@ namespace InranetSystem.Controllers
             }
             else
             {
-                Response.Cookies["Usuario"].Value = objeto.ElementAt(0).nomUsuario.ToString();
-                Response.Cookies["NombreUsuario"].Value = objeto.ElementAt(0).Nombre.ToString();
+                Response.Cookies["Usuario"].Value = objeto.ElementAt(0).email.ToString();
+                Response.Cookies["NombreUsuario"].Value = objeto.ElementAt(0).nombreCompleto.ToString();
                 Response.Cookies["Usuario"].Expires = DateTime.Now.AddDays(1);
                 Response.Cookies["NombreUsuario"].Expires = DateTime.Now.AddDays(1);
 
