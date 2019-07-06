@@ -11,7 +11,7 @@ namespace CapaEntidad
        public int idProducto { set; get; }
        public string nombre { set; get; }
        public string precioUnitario { set; get; }
-       public string idCategoria { set; get; }
+       public string nombreC { set; get; }
        public string codigo { set; get; }
        public string descripcion { set; get; }
        public int stock { set; get; }

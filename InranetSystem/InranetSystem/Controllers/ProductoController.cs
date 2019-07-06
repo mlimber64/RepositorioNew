@@ -14,30 +14,31 @@ namespace InranetSystem.Controllers
         // GET: Producto
         ProductoMANAGER managerProducto = new ProductoMANAGER();
         int numreg = 5;
-        public ActionResult IndexProducto()
+        public ActionResult IndexProducto(int? pag = null)
         {
-            IEnumerable<Producto> objeto = null;
-            objeto = managerProducto.listarProducto();
-            return View(objeto);
-        }
-        public ActionResult IndexProductos(int? pag = null)
-        {
-            var lista = managerProducto.listarProducto();
-            int c = lista.Count();
+            IEnumerable<Producto> listaTotal = null;
+            listaTotal = managerProducto.listarProducto();
+            //recupero la cantidad de registros y almaceno el numero de registro
+            int c = managerProducto.listarProducto().Count();
             ViewBag.numreg = c % numreg != 0 ? c / numreg + 1 : c / numreg;
 
+            //definir la pagina actual, el reg de inicio y el reg final
             int pageact = pag == null ? 0 : (int)pag;
             int reginicio = pageact * numreg;
             int regfin = reginicio + numreg;
-            List<Producto> listado = new List<Producto>();
 
+            //variable que almacenara los clientes para la paginación
+            List<Producto> lista = new List<Producto>();
             for (int i = reginicio; i < regfin; i++)
             {
-                if (i == c) break;
-                listado.Add(listado[i]);
+                if (i == c) break; //si i es igual a numero de reg salir
+                lista.Add(listaTotal.ToList()[i]);
             }
-
+            
             return View(lista);
         }
+       
+        
+
     }
 }

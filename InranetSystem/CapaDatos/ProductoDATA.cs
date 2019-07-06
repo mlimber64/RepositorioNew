@@ -23,7 +23,7 @@ namespace CapaDatos
             try
             {
                 conexion = cn.Conectar();
-                cmd = new SqlCommand("SP_INTRANETE_S_PRODUCTO", conexion);
+                cmd = new SqlCommand("SP_DBINTRANET_S_PRODUCTO", conexion);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 dr = null;
@@ -37,7 +37,7 @@ namespace CapaDatos
                     objeto.codigo = Convert.ToString(dr["Codigo"]);
                     objeto.nombre = Convert.ToString(dr["Nombre"]);
                     objeto.precioUnitario = Convert.ToString(dr["PrecioUnitario"]);
-                    objeto.idCategoria = Convert.ToString(dr["Nombre"]);
+                    objeto.nombreC = Convert.ToString(dr["nombreC"]);
                     objeto.descripcion = Convert.ToString(dr["Descripcion"]);
                     objeto.stock = Convert.ToInt32(dr["Stock"]);
                     objeto.imagen = Convert.ToString(dr["Imagen"]);

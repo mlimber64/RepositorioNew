@@ -1,75 +1,152 @@
 ﻿@model IEnumerable<CapaEntidad.Producto>
 
 @{
-    ViewBag.Title = "IndexProducto";
+    //Layout = "~/Views/Plantilla/View.cshtml";
 }
 
-<h2>IndexProducto</h2>
+<script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
+<script>
+    $(document).ready(function () {
+
+
+        $("#btnNuevo").click(function () {
+            $("#nomcre").val('');
+            $("#descre").val('');
+            $("#myModalCreate").modal({ backdrop: "static" }, { keyboard: false });
+        });
+
+        $("#myModalCreate").on("click", "#btnSendCreate", function () {
+
+            let nom = $("#nomcre").val();
+            let des = $("#descre").val();
+
+
+            let datasend = {
+                nom: nom,
+                des: des
+
+            };
+
+
+            $.ajax({
+                url:'@Url.Action("CreateMarca", "Marca")',
+                type: "POST",
+                data: JSON.stringify(datasend),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    console.log(JSON.stringify(result) + typeof result);
+                    if (result) {
+                        $("#myModalCreate").modal("hide");
+                        updateTableAjax();
+                        var content = {};
+                        content.message = 'La Marca se registro correctamente ';
+                        content.icon = 'icon la la-check';
+                        $.notify(content, prmNot3)
+
+                        setTimeout(function () {
+
+                        }, 1000);
+                    } else {
+                        console.log('Ocurrio un error');
+                    }
+
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+               });
+        });
+
+
+
+    });
+
+</script>
+
+
+
+<a href="#" id="btnNuevo" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>
+<br>
+<br>
+<table class="table table-bordered table-hover" id="tabla" width="100%">
+    <tr class="text-muted">
         <th>
-            @Html.DisplayNameFor(model => model.idProducto)
+            #
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            Codigo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.precioUnitario)
+            Nombre
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idCategoria)
+            Categoria
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.codigo)
+            Precio Unitario
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.descripcion)
+            Descripción
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.stock)
+            Stock
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.imagen)
+            Imagen
         </th>
-        <th></th>
+        <th>
+            Acciones
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idProducto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.precioUnitario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idCategoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.stock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.imagen)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precioUnitario)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imagen)
+            </td>
+            <td>
+
+                <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+        </tr>
+    }
 
 </table>
+<div class="irs-line-right">
+    @for (int i = 0; i < (int)ViewBag.numreg; i++)
+    {
+        @Html.ActionLink((i + 1).ToString(), "IndexProducto", new { pag = i }, new { @class = "btn btn-primary" });
+    }
+</div>
+@Html.Partial("~/Views/Producto/modalCrear.cshtml")
+
