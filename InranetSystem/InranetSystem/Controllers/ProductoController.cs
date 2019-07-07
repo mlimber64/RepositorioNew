@@ -37,8 +37,14 @@ namespace InranetSystem.Controllers
             
             return View(lista);
         }
-       
-        
+        public ActionResult Producto()
+        {
+            IEnumerable<Producto> objeto = null;
+            objeto = managerProducto.listarProducto();
+            return View(objeto);
+        }
+
+
 
     }
 }

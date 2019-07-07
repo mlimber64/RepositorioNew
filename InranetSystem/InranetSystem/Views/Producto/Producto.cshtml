@@ -1,0 +1,219 @@
+﻿@model IEnumerable<CapaEntidad.Producto>
+
+@{
+    Layout = "~/Views/Plantilla/View1.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+
+    var imgmoed;
+    var imged;
+    var img;
+    var rt;
+    var imco;
+
+
+
+
+        $("#btnNuevo").click(function () {
+            $("#nomcre").val('');
+            $("#descre").val('');
+            $("#imgPreviewFilecre").attr('src', '/imagenes/default.png');
+            $("#myModalCreate").modal({ backdrop: "static" }, { keyboard: false });
+        });
+
+
+
+        document.getElementById('imagencre').onchange = function () {
+            img = this.value.replace(/.*(\/|\\)/, '');
+            //Previsualizo la imagen elegida
+            var output = document.getElementById('imgPreviewFilecre');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        };
+
+        $("#ModalCreate").on("click", "#btnSendCreate", function () {
+
+            let nom = $("#nomcre").val();
+            let des = $("#descre").val();
+
+
+            /*
+            let datasend = {
+                descat: des,
+                idpadre: idpa,
+                nomcat: nom,
+                foto: img
+            };
+            */
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#imagencre").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                // Adding one more key to FormData object
+                //añado los datos al formadata
+                fileData.append('nombre', nom);
+                fileData.append('descripcion', des);
+                fileData.append('imagen', img);
+
+                if (nom.trim() == '') {
+                    swal("Error ", "El nombre es obligatorio", "error");
+                    $("#nomcre").focus();
+                } else if (des.trim() == '') {
+                    swal("Error ", "La Descripcion es obligatoria", "error");
+                    $("#descre").focus();
+                } else {
+
+                    $.ajax({
+                        url: '@Url.Action("UploadFiles", "Categoria")',
+                        type: "POST",
+                        contentType: false, // Not to set any content header
+                        processData: false, // Not to process data
+                        data: fileData,
+                        success: function (result) {
+                            console.log(result);
+                            if (result == 'Exito') {
+                                //let fn = FoundIDProducto(nom);
+                                $("#ModalCreate").modal("hide");
+                                //updateTableAjax();
+                                swal('Exito !', 'La Categoria se registro correctamente!', 'success', {
+                                    buttons: false,
+                                    timer: 1000,
+                                });
+
+                            } else {
+                                console.log('Ocurrio un error');
+                            }
+
+                        },
+                        error: function (err) {
+                            alert(err.statusText);
+                        }
+                    });
+                }
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+
+
+        @*function sendDataCreate() {
+            $.ajax({
+                url: '@Url.Action("UploadFiles", "Categoria")',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                contentType: 'application/json; charset=utf-8',
+                data: fileData,
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        }*@
+
+
+
+
+
+});
+
+</script>
+
+<a href="#" id="btnNuevo" class="btn btn-success"><i class="fa fa-plus"></i></a>
+<br>
+<br>
+<table class="m-datatable" id="html_table" width="100%">
+    <tr>
+        @*<th>
+            #
+        </th>*@
+        @*<th>
+            Codigo
+        </th>*@
+        <th>
+            Nombre
+        </th>
+        <th>
+            Categoria
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Stock
+        </th>
+        <th>
+            Imagen
+        </th>
+        <th>
+            Acciones
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.idProducto)
+            </td>*@
+            @*<td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precioUnitario)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stock)
+            </td>
+            <td>
+                <img src="~/images/@Html.DisplayFor(modelItem => item.imagen)" width="50" height="50" />
+            </td>
+            <td>
+
+                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details" id="btnEditar">
+                    <i class="la la-edit"></i>
+                </a>
+                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete" id="btnEliminar">
+                    <i class="la la-trash"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.Partial("~/Views/Producto/modalCrear.cshtml")

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CapaEntidad.Producto>
 
 @{
-    //Layout = "~/Views/Plantilla/View.cshtml";
+    Layout = "~/Views/Plantilla/View1.cshtml";
 }
 
 <script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
@@ -10,11 +10,16 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
+
 <script>
     $(document).ready(function () {
 
 
         $("#btnNuevo").click(function () {
+            $("#nomcre").val('');
+            $("#descre").val('');
+            $("#nomcre").val('');
+            $("#descre").val('');
             $("#nomcre").val('');
             $("#descre").val('');
             $("#myModalCreate").modal({ backdrop: "static" }, { keyboard: false });
@@ -69,13 +74,11 @@
 
 </script>
 
-
-
 <a href="#" id="btnNuevo" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>
 <br>
 <br>
-<table class="table table-bordered table-hover" id="tabla" width="100%">
-    <tr class="text-muted">
+<table class="m-datatable" id="html_table" width="100%">
+    <tr>
         <th>
             #
         </th>
@@ -135,18 +138,22 @@
             </td>
             <td>
 
-                <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-                <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details" id="btnEditar">
+                    <i class="la la-edit"></i>
+                </a>
+                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete" id="btnEliminar">
+                    <i class="la la-trash"></i>
+                </a>
             </td>
         </tr>
     }
 
 </table>
-<div class="irs-line-right">
+@*<div class="irs-line-right">
     @for (int i = 0; i < (int)ViewBag.numreg; i++)
     {
         @Html.ActionLink((i + 1).ToString(), "IndexProducto", new { pag = i }, new { @class = "btn btn-primary" });
     }
-</div>
+</div>*@
 @Html.Partial("~/Views/Producto/modalCrear.cshtml")
 

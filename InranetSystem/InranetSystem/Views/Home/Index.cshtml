@@ -2,187 +2,1361 @@
 @{
     Layout = null;
 }
-<html lang="es" class="translated-ltr">
+<html lang="en" class="wf-poppins-n3-active wf-poppins-n4-active wf-poppins-n5-active wf-poppins-n6-active wf-poppins-n7-active wf-roboto-n3-active wf-roboto-n4-active wf-roboto-n5-active wf-roboto-n6-active wf-roboto-n7-active wf-active">
+<!-- begin::Head -->
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
+    <title>
+        ERP GES 2017 | Dashboard
+    </title>
+    <meta name="description" content="Latest updates and statistic charts">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="images/favicon.ico" type="image/ico">
-
-    <title>Intranet | System</title>
-
-    <!-- Bootstrap -->
-    <link href="../../../Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="../../../Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../../../Content/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="../../../Content/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
-    <!-- bootstrap-progressbar -->
-    <link href="../../../Content/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="../../../Content/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet">
-    <!-- bootstrap-daterangepicker -->
-    <link href="../../../Content/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
-    <!-- Custom Theme Style -->
-    <link href="../../../Content/build/css/custom.min.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--begin::Web font -->
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto:300,400,500,600,700" media="all">
+    <script>
+        WebFont.load({
+            google: { "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"] },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+    <!--end::Web font -->
+    <!--begin::Base Styles -->
+    <!--begin::Page Vendors -->
+    <link href="../../../Content/TemplateIndex/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css">
+    <!--end::Page Vendors -->
+    <link href="../../../Content/TemplateIndex/assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css">
+    <link href="../../../Content/TemplateIndex/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css">
+    <!--end::Base Styles -->
+    <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico">
+    <style type="text/css"></style>
+    <style type="text/css"></style>
 </head>
-
-<body class="nav-md">
-    <div class="container body">
-        <div class="main_container">
-            <div class="col-md-3 left_col">
-                <div class="left_col scroll-view">
-                    <div class="navbar nav_title" style="border: 0;">
-                        <a href="@Url.Action("Index","Home")" class="site_title"><i class="fa fa-paw"></i> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Intranet | System</font></font></span></a>
-                    </div>
-
-                    <div class="clearfix"></div>
-
-                    <!-- menu profile quick info -->
-                    <div class="profile clearfix">
-                        <div class="profile_pic">
-                            <img src="../../../Content/images/img.jpg" alt="..." class="img-circle profile_img">
-                        </div>
-                        <div class="profile_info">
-                            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bienvenido,</font></font></span>
-                            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Request.Cookies["NombreUsuario"].Value.ToString()</font></font></h2>
-                        </div>
-                    </div>
-                    <!-- /menu profile quick info -->
-
-                    <br>
-
-                    <!-- sidebar menu -->
-                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                        <div class="menu_section active">
-                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">General</font></font></h3>
-                            <ul class="nav side-menu" style="">
-                                <li class="active">
-                                    <a><i class="fa fa-home"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Principal </font></font><span class="fa fa-chevron-down"></span></a>
-                                    
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-edit"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Registros </font></font><span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="@Url.Action("Index","Empleado")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Empleados</font></font></a></li>
-                                        <li><a href="@Url.Action("IndexProducto","Producto")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Productos</font></font></a></li>
-                                        
-                                    </ul>
-                                </li>
-                                
-                             
-                               
-                            </ul>
-                        </div>
-                       
-
-                    </div>
-                    <!-- /sidebar menu -->
-                    <!-- /menu footer buttons -->
-                   
-                    <!-- /menu footer buttons -->
-                </div>
-            </div>
-
-            <!-- top navigation -->
-            <div class="top_nav">
-                <div class="nav_menu">
-                    <nav>
-                        <div class="nav toggle">
-                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                        </div>
-
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="">
-                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="../../Content/images/img.jpg" alt=""><font style="vertical-align: inherit;">
-                                                                         <font style="vertical-align: inherit;">
-                                                                             @Request.Cookies["NombreUsuario"].Value.ToString()
-                                                                         </font>
-                                    </font><span class=" fa fa-angle-down"></span>
+<!-- end::Head -->
+<!-- end::Body -->
+<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default" style="">
+    <!-- begin:: Page -->
+    <div class="m-grid m-grid--hor m-grid--root m-page">
+        <!-- BEGIN: Header -->
+        <header class="m-grid__item    m-header " data-minimize-offset="200" data-minimize-mobile-offset="200">
+            <div class="m-container m-container--fluid m-container--full-height">
+                <div class="m-stack m-stack--ver m-stack--desktop">
+                    <!-- BEGIN: Brand -->
+                    <div class="m-stack__item m-brand  m-brand--skin-dark ">
+                        <div class="m-stack m-stack--ver m-stack--general">
+                            <div class="m-stack__item m-stack__item--middle m-brand__logo">
+                                <a href="@Url.Action("Index","Home")" class="m-brand__logo-wrapper">
+                                    <img alt="" src="../../../Content/TemplateIndex/assets/demo/default/media/img/logo/logo2.png">
                                 </a>
-                                <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                    
-                                    <li><a href="@Url.Action("Login","Usuario")"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                            </div>
+                            <div class="m-stack__item m-stack__item--middle m-brand__tools">
+                                <!-- BEGIN: Left Aside Minimize Toggle -->
+                                <a href="javascript:;" id="m_aside_left_minimize_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block
+					 ">
+                                    <span></span>
+                                </a>
+                                <!-- END -->
+                                <!-- BEGIN: Responsive Aside Left Menu Toggler -->
+                                <a href="javascript:;" id="m_aside_left_offcanvas_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block">
+                                    <span></span>
+                                </a>
+                                <!-- END -->
+                                <!-- BEGIN: Responsive Header Menu Toggler -->
+                                <a id="m_aside_header_menu_mobile_toggle" href="javascript:;" class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
+                                    <span></span>
+                                </a>
+                                <!-- END -->
+                                <!-- BEGIN: Topbar Toggler -->
+                                <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
+                                    <i class="flaticon-more"></i>
+                                </a>
+                                <!-- BEGIN: Topbar Toggler -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END: Brand -->
+                    <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+                        <!-- BEGIN: Horizontal Menu -->
+                        <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-dark " id="m_aside_header_menu_mobile_close_btn">
+                            <i class="la la-close"></i>
+                        </button>
+                        <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
+                           
+                        </div>
+                        <!-- END: Horizontal Menu -->								<!-- BEGIN: Topbar -->
+                        <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+                            <div class="m-stack__item m-topbar__nav-wrapper">
+                                <ul class="m-topbar__nav m-nav m-nav--inline">
+                                    <li class="
+	m-nav__item m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center m-dropdown--mobile-full-width m-dropdown--skin-light	m-list-search m-list-search--skin-light" data-dropdown-toggle="click" data-dropdown-persistent="true" id="m_quicksearch" data-search-type="dropdown">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle">
+                                            <span class="m-nav__link-icon">
+                                                <i class="flaticon-search-1"></i>
+                                            </span>
+                                        </a>
+                                        <div class="m-dropdown__wrapper">
+                                            <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
+                                            <div class="m-dropdown__inner ">
+                                                <div class="m-dropdown__header">
+                                                    <form class="m-list-search__form">
+                                                        <div class="m-list-search__form-wrapper">
+                                                            <span class="m-list-search__form-input-wrapper">
+                                                                <input id="m_quicksearch_input" autocomplete="off" type="text" name="q" class="m-list-search__form-input" value="" placeholder="Search...">
+                                                            </span>
+                                                            <span class="m-list-search__form-icon-close" id="m_quicksearch_close">
+                                                                <i class="la la-remove"></i>
+                                                            </span>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="m-dropdown__body">
+                                                    <div class="m-dropdown__scrollable m-scrollable mCustomScrollbar _mCS_4 mCS-autoHide mCS_no_scrollbar" data-scrollable="true" data-max-height="300" data-mobile-max-height="200" style="max-height: 300px; height: 300px; position: relative; overflow: visible;">
+                                                        <div id="mCSB_4" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0" style="max-height: 300px;">
+                                                            <div id="mCSB_4_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                                                                <div class="m-dropdown__content"></div>
+                                                            </div>
+                                                        </div><div id="mCSB_4_scrollbar_vertical" class="mCSB_scrollTools mCSB_4_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_4_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" data-dropdown-toggle="click" data-dropdown-persistent="true">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle" id="m_topbar_notification_icon">
+                                            <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger m-animate-blink"></span>
+                                            <span class="m-nav__link-icon m-animate-shake">
+                                                <i class="flaticon-music-2"></i>
+                                            </span>
+                                        </a>
+                                        <div class="m-dropdown__wrapper">
+                                            <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
+                                            <div class="m-dropdown__inner">
+                                                <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/notification_bg.jpg); background-size: cover;">
+                                                    <span class="m-dropdown__header-title">
+                                                        9 New
+                                                    </span>
+                                                    <span class="m-dropdown__header-subtitle">
+                                                        User Notifications
+                                                    </span>
+                                                </div>
+                                                <div class="m-dropdown__body">
+                                                    <div class="m-dropdown__content">
+                                                        <ul class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
+                                                            <li class="nav-item m-tabs__item">
+                                                                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#topbar_notifications_notifications" role="tab">
+                                                                    Alerts
+                                                                </a>
+                                                            </li>
+                                                            <li class="nav-item m-tabs__item">
+                                                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#topbar_notifications_events" role="tab">
+                                                                    Events
+                                                                </a>
+                                                            </li>
+                                                            <li class="nav-item m-tabs__item">
+                                                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#topbar_notifications_logs" role="tab">
+                                                                    Logs
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active" id="topbar_notifications_notifications" role="tabpanel">
+                                                                <div class="m-scrollable mCustomScrollbar _mCS_2 mCS-autoHide mCS_no_scrollbar" data-scrollable="true" data-max-height="250" data-mobile-max-height="200" style="max-height: 250px; height: 250px; position: relative; overflow: visible;">
+                                                                    <div id="mCSB_2" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0" style="max-height: 250px;">
+                                                                        <div id="mCSB_2_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                                                                            <div class="m-list-timeline m-list-timeline--skin-light">
+                                                                                <div class="m-list-timeline__items">
+                                                                                    <div class="m-list-timeline__item">
+                                                                                        <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                                                                        <span class="m-list-timeline__text">
+                                                                                            12 new users registered
+                                                                                        </span>
+                                                                                        <span class="m-list-timeline__time">
+                                                                                            Just now
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="m-list-timeline__item">
+                                                                                        <span class="m-list-timeline__badge"></span>
+                                                                                        <span class="m-list-timeline__text">
+                                                                                            System shutdown
+                                                                                            <span class="m-badge m-badge--success m-badge--wide">
+                                                                                                pending
+                                                                                            </span>
+                                                                                        </span>
+                                                                                        <span class="m-list-timeline__time">
+                                                                                            14 mins
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="m-list-timeline__item">
+                                                                                        <span class="m-list-timeline__badge"></span>
+                                                                                        <span class="m-list-timeline__text">
+                                                                                            New invoice received
+                                                                                        </span>
+                                                                                        <span class="m-list-timeline__time">
+                                                                                            20 mins
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="m-list-timeline__item">
+                                                                                        <span class="m-list-timeline__badge"></span>
+                                                                                        <span class="m-list-timeline__text">
+                                                                                            DB overloaded 80%
+                                                                                            <span class="m-badge m-badge--info m-badge--wide">
+                                                                                                settled
+                                                                                            </span>
+                                                                                        </span>
+                                                                                        <span class="m-list-timeline__time">
+                                                                                            1 hr
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="m-list-timeline__item">
+                                                                                        <span class="m-list-timeline__badge"></span>
+                                                                                        <span class="m-list-timeline__text">
+                                                                                            System error -
+                                                                                            <a href="#" class="m-link">
+                                                                                                Check
+                                                                                            </a>
+                                                                                        </span>
+                                                                                        <span class="m-list-timeline__time">
+                                                                                            2 hrs
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="m-list-timeline__item m-list-timeline__item--read">
+                                                                                        <span class="m-list-timeline__badge"></span>
+                                                                                        <span href="" class="m-list-timeline__text">
+                                                                                            New order received
+                                                                                            <span class="m-badge m-badge--danger m-badge--wide">
+                                                                                                urgent
+                                                                                            </span>
+                                                                                        </span>
+                                                                                        <span class="m-list-timeline__time">
+                                                                                            7 hrs
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="m-list-timeline__item m-list-timeline__item--read">
+                                                                                        <span class="m-list-timeline__badge"></span>
+                                                                                        <span class="m-list-timeline__text">
+                                                                                            Production server down
+                                                                                        </span>
+                                                                                        <span class="m-list-timeline__time">
+                                                                                            3 hrs
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="m-list-timeline__item">
+                                                                                        <span class="m-list-timeline__badge"></span>
+                                                                                        <span class="m-list-timeline__text">
+                                                                                            Production server up
+                                                                                        </span>
+                                                                                        <span class="m-list-timeline__time">
+                                                                                            5 hrs
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><div id="mCSB_2_scrollbar_vertical" class="mCSB_scrollTools mCSB_2_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_2_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane" id="topbar_notifications_events" role="tabpanel">
+                                                                <div class="m-scrollable" m-scrollabledata-scrollable="true" data-max-height="250" data-mobile-max-height="200">
+                                                                    <div class="m-list-timeline m-list-timeline--skin-light">
+                                                                        <div class="m-list-timeline__items">
+                                                                            <div class="m-list-timeline__item">
+                                                                                <span class="m-list-timeline__badge m-list-timeline__badge--state1-success"></span>
+                                                                                <a href="" class="m-list-timeline__text">
+                                                                                    New order received
+                                                                                </a>
+                                                                                <span class="m-list-timeline__time">
+                                                                                    Just now
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="m-list-timeline__item">
+                                                                                <span class="m-list-timeline__badge m-list-timeline__badge--state1-danger"></span>
+                                                                                <a href="" class="m-list-timeline__text">
+                                                                                    New invoice received
+                                                                                </a>
+                                                                                <span class="m-list-timeline__time">
+                                                                                    20 mins
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="m-list-timeline__item">
+                                                                                <span class="m-list-timeline__badge m-list-timeline__badge--state1-success"></span>
+                                                                                <a href="" class="m-list-timeline__text">
+                                                                                    Production server up
+                                                                                </a>
+                                                                                <span class="m-list-timeline__time">
+                                                                                    5 hrs
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="m-list-timeline__item">
+                                                                                <span class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
+                                                                                <a href="" class="m-list-timeline__text">
+                                                                                    New order received
+                                                                                </a>
+                                                                                <span class="m-list-timeline__time">
+                                                                                    7 hrs
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="m-list-timeline__item">
+                                                                                <span class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
+                                                                                <a href="" class="m-list-timeline__text">
+                                                                                    System shutdown
+                                                                                </a>
+                                                                                <span class="m-list-timeline__time">
+                                                                                    11 mins
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="m-list-timeline__item">
+                                                                                <span class="m-list-timeline__badge m-list-timeline__badge--state1-info"></span>
+                                                                                <a href="" class="m-list-timeline__text">
+                                                                                    Production server down
+                                                                                </a>
+                                                                                <span class="m-list-timeline__time">
+                                                                                    3 hrs
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane" id="topbar_notifications_logs" role="tabpanel">
+                                                                <div class="m-stack m-stack--ver m-stack--general" style="min-height: 180px;">
+                                                                    <div class="m-stack__item m-stack__item--center m-stack__item--middle">
+                                                                        <span class="">
+                                                                            All caught up!
+                                                                            <br>
+                                                                            No new logs.
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="m-nav__item m-topbar__quick-actions m-topbar__quick-actions--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light" data-dropdown-toggle="click">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle">
+                                            <span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
+                                            <span class="m-nav__link-icon">
+                                                <i class="flaticon-share"></i>
+                                            </span>
+                                        </a>
+                                        <div class="m-dropdown__wrapper">
+                                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                            <div class="m-dropdown__inner">
+                                                <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+                                                    <span class="m-dropdown__header-title">
+                                                        Quick Actions
+                                                    </span>
+                                                    <span class="m-dropdown__header-subtitle">
+                                                        Shortcuts
+                                                    </span>
+                                                </div>
+                                                <div class="m-dropdown__body m-dropdown__body--paddingless">
+                                                    <div class="m-dropdown__content">
+                                                        <div class="m-scrollable" data-scrollable="false" data-max-height="380" data-mobile-max-height="200">
+                                                            <div class="m-nav-grid m-nav-grid--skin-light">
+                                                                <div class="m-nav-grid__row">
+                                                                    <a href="#" class="m-nav-grid__item">
+                                                                        <i class="m-nav-grid__icon flaticon-file"></i>
+                                                                        <span class="m-nav-grid__text">
+                                                                            Generate Report
+                                                                        </span>
+                                                                    </a>
+                                                                    <a href="#" class="m-nav-grid__item">
+                                                                        <i class="m-nav-grid__icon flaticon-time"></i>
+                                                                        <span class="m-nav-grid__text">
+                                                                            Add New Event
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="m-nav-grid__row">
+                                                                    <a href="#" class="m-nav-grid__item">
+                                                                        <i class="m-nav-grid__icon flaticon-folder"></i>
+                                                                        <span class="m-nav-grid__text">
+                                                                            Create New Task
+                                                                        </span>
+                                                                    </a>
+                                                                    <a href="#" class="m-nav-grid__item">
+                                                                        <i class="m-nav-grid__icon flaticon-clipboard"></i>
+                                                                        <span class="m-nav-grid__text">
+                                                                            Completed Tasks
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" data-dropdown-toggle="click">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle">
+                                            <span class="m-topbar__userpic">
+                                                <img src="../../../Content/TemplateIndex/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt="">
+                                            </span>
+                                            <span class="m-topbar__username m--hide">
+                                                Nick
+                                            </span>
+                                        </a>
+                                        <div class="m-dropdown__wrapper">
+                                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                            <div class="m-dropdown__inner">
+                                                <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+                                                    <div class="m-card-user m-card-user--skin-dark">
+                                                        <div class="m-card-user__pic">
+                                                            <img src="../../../Content/TemplateIndex/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt="">
+                                                        </div>
+                                                        <div class="m-card-user__details">
+                                                            <span class="m-card-user__name m--font-weight-500">
+                                                                @Request.Cookies["NombreUsuario"].Value.ToString()
+                                                            </span>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="m-dropdown__body">
+                                                    <div class="m-dropdown__content">
+                                                        <ul class="m-nav m-nav--skin-light">
+                                                            <li class="m-nav__section m--hide">
+                                                                <span class="m-nav__section-text">
+                                                                    Section
+                                                                </span>
+                                                            </li>
+                                                            
+                                                            <li class="m-nav__separator m-nav__separator--fit"></li>
+                                                           
+                                                            <li class="m-nav__separator m-nav__separator--fit"></li>
+                                                            <li class="m-nav__item">
+                                                                <a href="@Url.Action("Login","Usuario")" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                    Logout
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="m_quick_sidebar_toggle" class="m-nav__item">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle">
+                                            <span class="m-nav__link-icon">
+                                                <i class="flaticon-grid-menu"></i>
+                                            </span>
+                                        </a>
+                                    </li>
                                 </ul>
-                            </li>
-
-                            
-                        </ul>
-                    </nav>
+                            </div>
+                        </div>
+                        <!-- END: Topbar -->
+                    </div>
                 </div>
             </div>
-            <!-- /top navigation -->
-            <!-- page content -->
-            <div class="right_col" style="background-image:url(/imagenes/code2.png)";>
-                <!-- top tiles -->
-                <div class="row tile_count">
-                   
-                <!-- /top tiles -->
-
-               
-                <br>
-
-               
+        </header>
+        <!-- END: Header -->
+        <!-- begin::Body -->
+        <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+            <!-- BEGIN: Left Aside -->
+            <button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn">
+                <i class="la la-close"></i>
+            </button>
+            <div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark ">
+                <!-- BEGIN: Aside Menu -->
+                <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark " data-menu-vertical="true" data-menu-scrollable="false" data-menu-dropdown-timeout="500">
+                    <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+                        <li class="m-menu__item  m-menu__item--active" aria-haspopup="true">
+                            <a href="@Url.Action("Index","Home")" class="m-menu__link ">
+                                <i class="m-menu__link-icon flaticon-line-graph"></i>
+                                <span class="m-menu__link-title">
+                                    <span class="m-menu__link-wrap">
+                                        <span class="m-menu__link-text">
+                                            Dashboard
+                                        </span>
+                                        
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-menu__section">
+                            <h4 class="m-menu__section-text">
+                                Components
+                            </h4>
+                            <i class="m-menu__section-icon flaticon-more-v3"></i>
+                        </li>
+                        <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" data-menu-submenu-toggle="hover">
+                            <a href="#" class="m-menu__link m-menu__toggle">
+                                <i class="m-menu__link-icon flaticon-tabs"></i>
+                                <span class="m-menu__link-text">
+                                    Registros
+                                </span>
+                                <i class="m-menu__ver-arrow la la-angle-right"></i>
+                            </a>
+                            <div class="m-menu__submenu">
+                                <span class="m-menu__arrow"></span>
+                                <ul class="m-menu__subnav">
+                                    <li class="m-menu__item  m-menu__item--parent" aria-haspopup="true">
+                                        <a href="#" class="m-menu__link ">
+                                            <span class="m-menu__link-text">
+                                                Datatables
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" data-menu-submenu-toggle="hover">
+                                        <a href="@Url.Action("Producto","Producto")" class="m-menu__link">
+                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                                                <span></span>
+                                            </i>
+                                            <span class="m-menu__link-text">
+                                                Productos
+                                            </span>
+                                            @*<i class="m-menu__ver-arrow la la-angle-right"></i>*@
+                                        </a>
+                                        <a href="@Url.Action("Index","Empleado")" class="m-menu__link">
+                                            <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                                                <span></span>
+                                            </i>
+                                            <span class="m-menu__link-text">
+                                                Empleados
+                                            </span>
+                                            @*<i class="m-menu__ver-arrow la la-angle-right"></i>*@
+                                        </a>
+                                        <div class="m-menu__submenu">
+                                            <span class="m-menu__arrow"></span>
+                                            <ul class="m-menu__subnav">
+                                                @*<li class="m-menu__item " aria-haspopup="true">
+                    <a href="@Url.Action("Producto","Producto")" class="m-menu__link ">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text">
+                            Productos
+                        </span>
+                    </a>
+                </li>*@
+                                                @*<li class="m-menu__item " aria-haspopup="true">
+                    <a href="components/datatables/base/data-json.html" class="m-menu__link ">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text">
+                            JSON Data
+                        </span>
+                    </a>
+                </li>
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="components/datatables/base/data-ajax.html" class="m-menu__link ">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text">
+                            Ajax Data
+                        </span>
+                    </a>
+                </li>
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="components/datatables/base/html-table.html" class="m-menu__link ">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text">
+                            HTML Table
+                        </span>
+                    </a>
+                </li>
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="components/datatables/base/record-selection.html" class="m-menu__link ">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text">
+                            Record Selection
+                        </span>
+                    </a>
+                </li>
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="components/datatables/base/local-sort.html" class="m-menu__link ">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text">
+                            Local Sort
+                        </span>
+                    </a>
+                </li>
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="components/datatables/base/column-rendering.html" class="m-menu__link ">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text">
+                            Column Rendering
+                        </span>
+                    </a>
+                </li>
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="components/datatables/base/column-width.html" class="m-menu__link ">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text">
+                            Column Width
+                        </span>
+                    </a>
+                </li>
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="components/datatables/base/responsive-columns.html" class="m-menu__link ">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text">
+                            Responsive Columns
+                        </span>
+                    </a>
+                </li>
+                <li class="m-menu__item " aria-haspopup="true">
+                    <a href="components/datatables/base/translation.html" class="m-menu__link ">
+                        <i class="m-menu__link-bullet m-menu__link-bullet--dot">
+                            <span></span>
+                        </i>
+                        <span class="m-menu__link-text">
+                            Translation
+                        </span>
+                    </a>
+                </li>*@
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+                       
+                       
+                       
+                    </ul>
+                </div>
+                <!-- END: Aside Menu -->
             </div>
-            <!-- /page content -->
-            <!-- footer content -->
-            
-            <!-- /footer content -->
+            <!-- END: Left Aside -->
+            <div class="m-grid__item m-grid__item--fluid m-wrapper">
+                <!-- BEGIN: Subheader -->
+                <div class="m-subheader ">
+                    <div class="d-flex align-items-center">
+                        <div class="mr-auto">
+                            @*<h3 class="m-subheader__title ">
+                                Dashboard
+                            </h3>*@
+                        </div>
+                        <div>
+                            <span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+                                <span class="m-subheader__daterange-label">
+                                    <span class="m-subheader__daterange-title">Today:</span>
+                                    <span class="m-subheader__daterange-date m--font-brand">Jul 6</span>
+                                </span>
+                                <a href="#" class="btn btn-sm btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill">
+                                    <i class="la la-angle-down"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: Subheader -->
+                <div class="m-content">
+                   <div class="right_col" style="background-image:url(/images/code.jpg)";></div>
+                    <!--End::Main Portlet-->
+                </div>
+            </div>
+        </div>
+        <!-- end:: Body -->
+        <!-- begin::Footer -->
+        <footer class="m-grid__item		m-footer ">
+            <div class="m-container m-container--fluid m-container--full-height m-page__container">
+                <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
+                    <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
+                        <span class="m-footer__copyright">
+                            2017 © ERP GES theme by
+                            <a href="#" class="m-link">
+                                GES
+                            </a>
+                        </span>
+                    </div>
+                    <div class="m-stack__item m-stack__item--right m-stack__item--middle m-stack__item--first">
+                        <ul class="m-footer__nav m-nav m-nav--inline m--pull-right">
+                            <li class="m-nav__item">
+                                <a href="#" class="m-nav__link">
+                                    <span class="m-nav__link-text">
+                                        About
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="m-nav__item">
+                                <a href="#" class="m-nav__link">
+                                    <span class="m-nav__link-text">
+                                        Privacy
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="m-nav__item">
+                                <a href="#" class="m-nav__link">
+                                    <span class="m-nav__link-text">
+                                        T&amp;C
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="m-nav__item">
+                                <a href="#" class="m-nav__link">
+                                    <span class="m-nav__link-text">
+                                        Purchase
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="m-nav__item m-nav__item">
+                                <a href="#" class="m-nav__link" data-toggle="m-tooltip" title="" data-placement="left" data-original-title="Support Center">
+                                    <i class="m-nav__link-icon flaticon-info m--icon-font-size-lg3"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end::Footer -->
+    </div>
+    <!-- end:: Page -->
+    <!-- begin::Quick Sidebar -->
+    <div id="m_quick_sidebar" class="m-quick-sidebar m-quick-sidebar--tabbed m-quick-sidebar--skin-light">
+        <div class="m-quick-sidebar__content m--hide">
+            <span id="m_quick_sidebar_close" class="m-quick-sidebar__close">
+                <i class="la la-close"></i>
+            </span>
+            <ul id="m_quick_sidebar_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
+                <li class="nav-item m-tabs__item">
+                    <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger" role="tab">
+                        Messages
+                    </a>
+                </li>
+                <li class="nav-item m-tabs__item">
+                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_settings" role="tab">
+                        Settings
+                    </a>
+                </li>
+                <li class="nav-item m-tabs__item">
+                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_logs" role="tab">
+                        Logs
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_messenger" role="tabpanel">
+                    <div class="m-messenger m-messenger--message-arrow m-messenger--skin-light">
+                        <div class="m-messenger__messages">
+                            <div class="m-messenger__message m-messenger__message--in">
+                                <div class="m-messenger__message-pic">
+                                    <img src="assets/app/media/img//users/user3.jpg" alt="">
+                                </div>
+                                <div class="m-messenger__message-body">
+                                    <div class="m-messenger__message-arrow"></div>
+                                    <div class="m-messenger__message-content">
+                                        <div class="m-messenger__message-username">
+                                            Megan wrote
+                                        </div>
+                                        <div class="m-messenger__message-text">
+                                            Hi Bob. What time will be the meeting ?
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-messenger__message m-messenger__message--out">
+                                <div class="m-messenger__message-body">
+                                    <div class="m-messenger__message-arrow"></div>
+                                    <div class="m-messenger__message-content">
+                                        <div class="m-messenger__message-text">
+                                            Hi Megan. It's at 2.30PM
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-messenger__message m-messenger__message--in">
+                                <div class="m-messenger__message-pic">
+                                    <img src="assets/app/media/img//users/user3.jpg" alt="">
+                                </div>
+                                <div class="m-messenger__message-body">
+                                    <div class="m-messenger__message-arrow"></div>
+                                    <div class="m-messenger__message-content">
+                                        <div class="m-messenger__message-username">
+                                            Megan wrote
+                                        </div>
+                                        <div class="m-messenger__message-text">
+                                            Will the development team be joining ?
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-messenger__message m-messenger__message--out">
+                                <div class="m-messenger__message-body">
+                                    <div class="m-messenger__message-arrow"></div>
+                                    <div class="m-messenger__message-content">
+                                        <div class="m-messenger__message-text">
+                                            Yes sure. I invited them as well
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-messenger__datetime">
+                                2:30PM
+                            </div>
+                            <div class="m-messenger__message m-messenger__message--in">
+                                <div class="m-messenger__message-pic">
+                                    <img src="assets/app/media/img//users/user3.jpg" alt="">
+                                </div>
+                                <div class="m-messenger__message-body">
+                                    <div class="m-messenger__message-arrow"></div>
+                                    <div class="m-messenger__message-content">
+                                        <div class="m-messenger__message-username">
+                                            Megan wrote
+                                        </div>
+                                        <div class="m-messenger__message-text">
+                                            Noted. For the Coca-Cola Mobile App project as well ?
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-messenger__message m-messenger__message--out">
+                                <div class="m-messenger__message-body">
+                                    <div class="m-messenger__message-arrow"></div>
+                                    <div class="m-messenger__message-content">
+                                        <div class="m-messenger__message-text">
+                                            Yes, sure.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-messenger__message m-messenger__message--out">
+                                <div class="m-messenger__message-body">
+                                    <div class="m-messenger__message-arrow"></div>
+                                    <div class="m-messenger__message-content">
+                                        <div class="m-messenger__message-text">
+                                            Please also prepare the quotation for the Loop CRM project as well.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-messenger__datetime">
+                                3:15PM
+                            </div>
+                            <div class="m-messenger__message m-messenger__message--in">
+                                <div class="m-messenger__message-no-pic m--bg-fill-danger">
+                                    <span>
+                                        M
+                                    </span>
+                                </div>
+                                <div class="m-messenger__message-body">
+                                    <div class="m-messenger__message-arrow"></div>
+                                    <div class="m-messenger__message-content">
+                                        <div class="m-messenger__message-username">
+                                            Megan wrote
+                                        </div>
+                                        <div class="m-messenger__message-text">
+                                            Noted. I will prepare it.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-messenger__message m-messenger__message--out">
+                                <div class="m-messenger__message-body">
+                                    <div class="m-messenger__message-arrow"></div>
+                                    <div class="m-messenger__message-content">
+                                        <div class="m-messenger__message-text">
+                                            Thanks Megan. I will see you later.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-messenger__message m-messenger__message--in">
+                                <div class="m-messenger__message-pic">
+                                    <img src="assets/app/media/img//users/user3.jpg" alt="">
+                                </div>
+                                <div class="m-messenger__message-body">
+                                    <div class="m-messenger__message-arrow"></div>
+                                    <div class="m-messenger__message-content">
+                                        <div class="m-messenger__message-username">
+                                            Megan wrote
+                                        </div>
+                                        <div class="m-messenger__message-text">
+                                            Sure. See you in the meeting soon.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-messenger__seperator"></div>
+                        <div class="m-messenger__form">
+                            <div class="m-messenger__form-controls">
+                                <input type="text" name="" placeholder="Type here..." class="m-messenger__form-input">
+                            </div>
+                            <div class="m-messenger__form-tools">
+                                <a href="" class="m-messenger__form-attachment">
+                                    <i class="la la-paperclip"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_settings" role="tabpanel">
+                    <div class="m-list-settings">
+                        <div class="m-list-settings__group">
+                            <div class="m-list-settings__heading">
+                                General Settings
+                            </div>
+                            <div class="m-list-settings__item">
+                                <span class="m-list-settings__item-label">
+                                    Email Notifications
+                                </span>
+                                <span class="m-list-settings__item-control">
+                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                        <label>
+                                            <input type="checkbox" checked="checked" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="m-list-settings__item">
+                                <span class="m-list-settings__item-label">
+                                    Site Tracking
+                                </span>
+                                <span class="m-list-settings__item-control">
+                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                        <label>
+                                            <input type="checkbox" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="m-list-settings__item">
+                                <span class="m-list-settings__item-label">
+                                    SMS Alerts
+                                </span>
+                                <span class="m-list-settings__item-control">
+                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                        <label>
+                                            <input type="checkbox" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="m-list-settings__item">
+                                <span class="m-list-settings__item-label">
+                                    Backup Storage
+                                </span>
+                                <span class="m-list-settings__item-control">
+                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                        <label>
+                                            <input type="checkbox" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="m-list-settings__item">
+                                <span class="m-list-settings__item-label">
+                                    Audit Logs
+                                </span>
+                                <span class="m-list-settings__item-control">
+                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                        <label>
+                                            <input type="checkbox" checked="checked" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="m-list-settings__group">
+                            <div class="m-list-settings__heading">
+                                System Settings
+                            </div>
+                            <div class="m-list-settings__item">
+                                <span class="m-list-settings__item-label">
+                                    System Logs
+                                </span>
+                                <span class="m-list-settings__item-control">
+                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                        <label>
+                                            <input type="checkbox" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="m-list-settings__item">
+                                <span class="m-list-settings__item-label">
+                                    Error Reporting
+                                </span>
+                                <span class="m-list-settings__item-control">
+                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                        <label>
+                                            <input type="checkbox" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="m-list-settings__item">
+                                <span class="m-list-settings__item-label">
+                                    Applications Logs
+                                </span>
+                                <span class="m-list-settings__item-control">
+                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                        <label>
+                                            <input type="checkbox" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="m-list-settings__item">
+                                <span class="m-list-settings__item-label">
+                                    Backup Servers
+                                </span>
+                                <span class="m-list-settings__item-control">
+                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                        <label>
+                                            <input type="checkbox" checked="checked" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="m-list-settings__item">
+                                <span class="m-list-settings__item-label">
+                                    Audit Logs
+                                </span>
+                                <span class="m-list-settings__item-control">
+                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                        <label>
+                                            <input type="checkbox" name="">
+                                            <span></span>
+                                        </label>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_logs" role="tabpanel">
+                    <div class="m-list-timeline">
+                        <div class="m-list-timeline__group">
+                            <div class="m-list-timeline__heading">
+                                System Logs
+                            </div>
+                            <div class="m-list-timeline__items">
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        12 new users registered
+                                        <span class="m-badge m-badge--warning m-badge--wide">
+                                            important
+                                        </span>
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        Just now
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        System shutdown
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        11 mins
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        New invoice received
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        20 mins
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        Database overloaded 89%
+                                        <span class="m-badge m-badge--success m-badge--wide">
+                                            resolved
+                                        </span>
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        1 hr
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        System error
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        2 hrs
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        Production server down
+                                        <span class="m-badge m-badge--danger m-badge--wide">
+                                            pending
+                                        </span>
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        3 hrs
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        Production server up
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        5 hrs
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-list-timeline__group">
+                            <div class="m-list-timeline__heading">
+                                Applications Logs
+                            </div>
+                            <div class="m-list-timeline__items">
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        New order received
+                                        <span class="m-badge m-badge--info m-badge--wide">
+                                            urgent
+                                        </span>
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        7 hrs
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        12 new users registered
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        Just now
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        System shutdown
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        11 mins
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        New invoices received
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        20 mins
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        Database overloaded 89%
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        1 hr
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        System error
+                                        <span class="m-badge m-badge--info m-badge--wide">
+                                            pending
+                                        </span>
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        2 hrs
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        Production server down
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        3 hrs
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-list-timeline__group">
+                            <div class="m-list-timeline__heading">
+                                Server Logs
+                            </div>
+                            <div class="m-list-timeline__items">
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        Production server up
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        5 hrs
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        New order received
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        7 hrs
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        12 new users registered
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        Just now
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        System shutdown
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        11 mins
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        New invoice received
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        20 mins
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        Database overloaded 89%
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        1 hr
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        System error
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        2 hrs
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        Production server down
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        3 hrs
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        Production server up
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        5 hrs
+                                    </span>
+                                </div>
+                                <div class="m-list-timeline__item">
+                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                    <a href="" class="m-list-timeline__text">
+                                        New order received
+                                    </a>
+                                    <span class="m-list-timeline__time">
+                                        1117 hrs
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <!-- end::Quick Sidebar -->
+    <!-- begin::Scroll Top -->
+    <div class="m-scroll-top m-scroll-top--skin-top" data-toggle="m-scroll-top" data-scroll-offset="500" data-scroll-speed="300">
+        <i class="la la-arrow-up"></i>
+    </div>
+    <!-- end::Scroll Top -->		    <!-- begin::Quick Nav -->
+    <ul class="m-nav-sticky" style="margin-top: 30px;">
+        <!--
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Showcase" data-placement="left">
+            <a href="">
+                <i class="la la-eye"></i>
+            </a>
+        </li>
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Pre-sale Chat" data-placement="left">
+            <a href="" >
+                <i class="la la-comments-o"></i>
+            </a>
+        </li>
+        -->
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="" data-placement="left" data-original-title="Purchase">
+            <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" target="_blank">
+                <i class="la la-cart-arrow-down"></i>
+            </a>
+        </li>
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="" data-placement="left" data-original-title="Documentation">
+            <a href="http://keenthemes.com/metronic/documentation.html" target="_blank">
+                <i class="la la-code-fork"></i>
+            </a>
+        </li>
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="" data-placement="left" data-original-title="Support">
+            <a href="http://keenthemes.com/forums/forum/support/metronic5/" target="_blank">
+                <i class="la la-life-ring"></i>
+            </a>
+        </li>
+    </ul>
+    <!-- begin::Quick Nav -->
+    <!--begin::Base Scripts -->
+    <script src="../../../Content/TemplateIndex/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
+    <script src="../../../Content/TemplateIndex/assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+    <!--end::Base Scripts -->
+    <!--begin::Page Vendors -->
+    <script src="../../../Content/TemplateIndex/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+    <!--end::Page Vendors -->
+    <!--begin::Page Snippets -->
+    <script src="../../../Content/TemplateIndex/assets/app/js/dashboard.js" type="text/javascript"></script>
+    <!--end::Page Snippets -->
+    <!-- end::Body -->
 
-    <!-- jQuery -->
-    <script src="../../../Content/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../../../Content/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../../../Content/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../../../Content/vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="../../../Content/vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="../../../Content/vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../../../Content/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../../../Content/vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../../../Content/vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="../../../Content/vendors/Flot/jquery.flot.js"></script>
-    <script src="../../../Content/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../../../Content/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../../../Content/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../../../Content/vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../../../Content/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../../../Content/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../../../Content/vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="../../../Content/vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="../../../Content/vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../../../Content/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../../../Content/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="../../../Content/vendors/moment/min/moment.min.js"></script>
-    <script src="../../../Content/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="../../../Content/build/js/custom.min.js"></script>
-
-
-
-    <div class="jqvmap-label" style="display: none;"></div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google Traductor de Google"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugiere una traducción mejor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div class="daterangepicker ltr show-ranges opensleft"><div class="ranges"><ul><li data-range-key="Today">Today</li><li data-range-key="Yesterday">Yesterday</li><li data-range-key="Last 7 Days">Last 7 Days</li><li data-range-key="Last 30 Days">Last 30 Days</li><li data-range-key="This Month">This Month</li><li data-range-key="Last Month">Last Month</li><li data-range-key="Custom">Custom</li></ul></div><div class="drp-calendar left"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-calendar right"><div class="calendar-table"></div><div class="calendar-time" style="display: none;"></div></div><div class="drp-buttons"><span class="drp-selected"></span><button class="cancelBtn btn btn-default btn-small" type="button">Clear</button><button class="applyBtn btn btn-default btn-small btn-primary" disabled="disabled" type="button">Submit</button> </div></div><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div>
-</div>
+    <div class="daterangepicker dropdown-menu ltr opensleft"><div class="calendar left"><div class="daterangepicker_input"><input class="input-mini form-control" type="text" name="daterangepicker_start" value=""><i class="fa fa-calendar glyphicon glyphicon-calendar"></i><div class="calendar-time" style="display: none;"><div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i></div></div><div class="calendar-table"></div></div><div class="calendar right"><div class="daterangepicker_input"><input class="input-mini form-control" type="text" name="daterangepicker_end" value=""><i class="fa fa-calendar glyphicon glyphicon-calendar"></i><div class="calendar-time" style="display: none;"><div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i></div></div><div class="calendar-table"></div></div><div class="ranges"><ul><li data-range-key="Today">Today</li><li data-range-key="Yesterday">Yesterday</li><li data-range-key="Last 7 Days">Last 7 Days</li><li data-range-key="Last 30 Days">Last 30 Days</li><li data-range-key="This Month">This Month</li><li data-range-key="Last Month">Last Month</li><li data-range-key="Custom Range">Custom Range</li></ul><div class="range_inputs"><button class="applyBtn btn btn-sm btn-success" disabled="disabled" type="button">Apply</button> <button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button></div></div></div>
 </body>
 </html>
