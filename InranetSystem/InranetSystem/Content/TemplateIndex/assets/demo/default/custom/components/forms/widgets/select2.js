@@ -3,7 +3,7 @@ var Select2 = function() {
     //== Private functions
     var demos = function() {
         // basic
-        $('#m_select2_1, #m_select2_1_validate').select2({
+        $('#cate').select2({
             placeholder: "Select a state"
         });
 
@@ -114,9 +114,9 @@ var Select2 = function() {
         });
 
         // disabled mode
-        $('#m_select2_7').select2({
-            placeholder: "Select an option"
-        });
+        //$('#cate').select2({
+        //    placeholder: "Select an option"
+        //});
 
         // disabled results
         $('#m_select2_8').select2({

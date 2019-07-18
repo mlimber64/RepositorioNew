@@ -61,5 +61,44 @@ namespace CapaDatos
             }
             return lista;
         }
+        public Boolean RegistrarProducto(string codigo, string nombre, string preuni, string categ, string descri, string stock, string imagen)
+        {
+            try
+            {
+                conexion = cn.Conectar();
+                SqlCommand cmd = new SqlCommand("USP_ERPGES_I_CATEGORIAPRODUCTO", conexion);
+
+
+                //Definimos los parámetros de entrada
+
+                cmd.Parameters.AddWithValue("_Cate_Categ_Id_Padre", codigo);
+                cmd.Parameters.AddWithValue("_Cate_Nombre", nombre);
+                cmd.Parameters.AddWithValue("_Cate_Descri", preuni);
+                cmd.Parameters.AddWithValue("_Cat_Imagen", categ);
+                cmd.Parameters.AddWithValue("_Cate_Categ_Id_Padre", descri);
+                cmd.Parameters.AddWithValue("_Cate_Nombre", stock);
+                cmd.Parameters.AddWithValue("_Cat_Imagen", imagen);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                errores = ex.Message;
+                return false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+                conexion = null;
+                cmd = null;
+                cn = null;
+            }
+        }
     }
 }

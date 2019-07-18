@@ -17,55 +17,65 @@
             <div class="modal-body">
                 <form id="frmModal">
                     <br />
+                    <div class="form-group m-form__group row">
+                        <div class="col-lg-6">
+                            <label class="">Codigo :</label>
 
-                    <label class="">Nombre:</label>
+                            <input type="text" class="form-control m-input" id="nomcre">
+                            <span class="m-form__help"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="">Nombre :</label>
 
-                    <input type="text" class="form-control m-input" id="nomcre">
+                            <input type="text" class="form-control m-input" id="nomcre">
+                            <span class="m-form__help"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="">Categoria :</label>
 
+                            @Html.DropDownList("cate", (SelectList)ViewBag.Categoria, new { @style = "width:80%" })
+                            <span class="m-form__help"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="">Precio :</label>
 
-                    <span class="m-form__help">
-                    </span>
-                    <br />
+                            <input type="text" class="form-control m-input" id="nomcre">
+                            <span class="m-form__help"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="">Descripción :</label>
 
+                            <textarea class="form-control m-input" rows="3" id="descre"></textarea>
+                            <span class="m-form__help"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="">Stock :</label>
 
-                    <label class="">Descripcion :</label>
+                            <input type="text" class="form-control m-input" id="nomcre">
+                            <span class="m-form__help"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="">Imagen :</label>
 
-                    <textarea class="form-control m-input" rows="3" id="descre"></textarea>
+                            <img id="imgPreviewFilecre" src="~/imagenes/default.png" width="200" height="200" />
+                            <span class="m-form__help"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="btn btn-success m-btn m-btn--icon" style="text-align:right">
 
-                    <span class="m-form__help">
-                    </span>
-                    <label>
-                        Categoria Padre :
-                    </label>
-                    <div class="input-group m-input-group">
+                                <span>
+                                    <i class="la la-cloud-upload"></i>
+                                    <span>
+                                        Subir Archivo
+                                    </span>
 
-                        <input type="text" class="form-control m-input" id="nomcre">
+                                    <input type="file" id="imagencre" style="display:none">
+                                </span>
+                            </label>
+                            <span class="m-form__help"></span>
+                        </div>
+
                     </div>
-                    <span class="m-form__help">
-                    </span>
-                    <label class="">Imagen:</label>
-                    <img id="imgPreviewFilecre" src="~/imagenes/default.png" width="200" height="200" />
-                    <br>
-                    <br>
-                    <label class="btn btn-success m-btn m-btn--icon" style="text-align:center">
-
-                        <span>
-                            <i class="la la-cloud-upload"></i>
-                            <span>
-                                Subir Archivo
-                            </span>
-
-                            <input type="file" id="imagencre" style="display:none">
-                        </span>
-                    </label>
-                    @*<div>
-            <img id="imgPreviewFilecre" src="~/imagenes/default.png" width="200" height="200" />
-            <input type="file" id="imagencre">
-        </div>*@
-
-
-                    <span class="m-form__help">
-                    </span>
                 </form>
             </div>
             <div class="modal-footer" style="background-color:#f1f2f6">
