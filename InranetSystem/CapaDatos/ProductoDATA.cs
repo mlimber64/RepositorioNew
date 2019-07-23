@@ -34,13 +34,13 @@ namespace CapaDatos
                 {
                     objeto = new Producto();
                     objeto.idProducto = Convert.ToInt32(dr["idProducto"]);
-                    objeto.codigo = Convert.ToString(dr["Codigo"]);
+                    objeto.tipo = Convert.ToString(dr["Nombre"]);
                     objeto.nombre = Convert.ToString(dr["Nombre"]);
-                    objeto.precioUnitario = Convert.ToString(dr["PrecioUnitario"]);
-                    objeto.nombreC = Convert.ToString(dr["nombreC"]);
                     objeto.descripcion = Convert.ToString(dr["Descripcion"]);
-                    objeto.stock = Convert.ToInt32(dr["Stock"]);
-                    objeto.imagen = Convert.ToString(dr["Imagen"]);
+                    objeto.precioCompra = Convert.ToString(dr["PrecioUnitario"]);
+                    objeto.precioVenta = Convert.ToString(dr["nombreC"]);
+                    objeto.stockActual = Convert.ToString(dr["Stock"]);
+                    objeto.stockMinino = Convert.ToString(dr["Imagen"]);
                     
 
                     lista.Add(objeto);
