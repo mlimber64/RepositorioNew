@@ -4961,6 +4961,7 @@
     <Content Include="Views\Producto\modalCrear.cshtml" />
     <Content Include="Views\Plantilla\View1.cshtml" />
     <Content Include="Views\Producto\Producto.cshtml" />
+    <Content Include="Views\Producto\IndexProductos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

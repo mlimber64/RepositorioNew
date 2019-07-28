@@ -1,0 +1,89 @@
+﻿@model IEnumerable<CapaEntidad.Producto>
+
+@{
+    Layout = "~/Views/Plantilla/View1.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+<a href="#" id="btnNuevo" class="btn btn-success"><i class="fa fa-plus"></i></a>
+<table class="m-datatable" id="html_table" width="100%">
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Tipo
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Precio Compra
+        </th>
+        <th>
+            Precio Venta
+        </th>
+        <th>
+            Stock Actual
+        </th>
+        <th>
+           Stock Minimo
+        </th>
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioVenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stockActual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stockMinino)
+        </td>
+        
+        <td>
+        <td>
+
+            <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details" id="btnEditar">
+                <i class="la la-edit"></i>
+            </a>
+            <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete" id="btnEliminar">
+                <i class="la la-trash"></i>
+            </a>
+        </td>
+        
+    </tr>
+    }
+
+</table>
+

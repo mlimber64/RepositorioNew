@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="CategoriaDATA.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DetalleVentaDATA.cs" />
     <Compile Include="EmpleadosDATA.cs" />
     <Compile Include="ProductoDATA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

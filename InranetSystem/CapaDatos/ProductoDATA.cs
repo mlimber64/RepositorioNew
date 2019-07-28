@@ -23,7 +23,7 @@ namespace CapaDatos
             try
             {
                 conexion = cn.Conectar();
-                cmd = new SqlCommand("SP_DBINTRANET_S_PRODUCTO", conexion);
+                cmd = new SqlCommand("SP_DBTEST_S_PRODUCTO", conexion);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 dr = null;
@@ -34,13 +34,13 @@ namespace CapaDatos
                 {
                     objeto = new Producto();
                     objeto.idProducto = Convert.ToInt32(dr["idProducto"]);
-                    objeto.tipo = Convert.ToString(dr["Nombre"]);
+                    objeto.Tipo = Convert.ToString(dr["Tipo"]);
                     objeto.nombre = Convert.ToString(dr["Nombre"]);
                     objeto.descripcion = Convert.ToString(dr["Descripcion"]);
-                    objeto.precioCompra = Convert.ToString(dr["PrecioUnitario"]);
-                    objeto.precioVenta = Convert.ToString(dr["nombreC"]);
-                    objeto.stockActual = Convert.ToString(dr["Stock"]);
-                    objeto.stockMinino = Convert.ToString(dr["Imagen"]);
+                    objeto.precioCompra = Convert.ToString(dr["PrecioCompra"]);
+                    objeto.precioVenta = Convert.ToString(dr["PrecioVenta"]);
+                    objeto.stockActual = Convert.ToString(dr["StockActual"]);
+                    objeto.stockMinino = Convert.ToString(dr["StockMin"]);
                     
 
                     lista.Add(objeto);

@@ -9,7 +9,7 @@ namespace CapaEntidad
    public class Producto
     {
        public int idProducto { set; get; }
-       public string tipo { set; get; }
+       public string Tipo { set; get; }
        public string nombre { set; get; }
        public string descripcion { set; get; }
        public string precioCompra { set; get; }

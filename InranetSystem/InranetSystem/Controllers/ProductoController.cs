@@ -46,6 +46,13 @@ namespace InranetSystem.Controllers
             ViewBag.Categoria = new SelectList(managerCategoria.listarCategoria(), "idCategoria", "Nombre");
             return View(objeto);
         }
+        public ActionResult IndexProductos()
+        {
+            IEnumerable<Producto> objeto = null;
+            objeto = managerProducto.listarProducto();
+            //ViewBag.Categoria = new SelectList(managerCategoria.listarCategoria(), "idCategoria", "Nombre");
+            return View(objeto);
+        }
 
         [HttpPost]
         public ActionResult sendFile(HttpPostedFileBase file)
