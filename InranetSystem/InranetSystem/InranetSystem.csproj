@@ -122,6 +122,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DetalleVentaController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
@@ -4962,6 +4963,8 @@
     <Content Include="Views\Plantilla\View1.cshtml" />
     <Content Include="Views\Producto\Producto.cshtml" />
     <Content Include="Views\Producto\IndexProductos.cshtml" />
+    <Content Include="Views\DetalleVenta\IndexDetVenta.cshtml" />
+    <Content Include="Views\DetalleVenta\modalCrear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

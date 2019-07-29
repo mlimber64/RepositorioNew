@@ -33,11 +33,11 @@ namespace CapaDatos
                 {
                     objeto = new DetalleVenta();
 
-                    objeto.idVenta = Convert.ToInt32(dr["Tipo"]);
-                    objeto.idProducto = Convert.ToInt32(dr["idProducto"]);
-                    objeto.cantidad = Convert.ToInt32(dr["Nombre"]);
-                    objeto.precio = Convert.ToString(dr["Descripcion"]);
-                    objeto.total = Convert.ToString(dr["PrecioCompra"]);
+                    objeto.idVenta = Convert.ToInt32(dr["IdVenta"]);
+                    objeto.Nombre = Convert.ToString(dr["Nombre"]);
+                    objeto.cantidad = Convert.ToInt32(dr["Cantidad"]);
+                    objeto.precio = Convert.ToString(dr["Precio"]);
+                    objeto.total = Convert.ToString(dr["Total"]);
 
 
                     lista.Add(objeto);

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CapaEntidad.DetalleVenta>
+
+@{
+    Layout = "~/Views/Plantilla/View1.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+<a href="#" id="btnNuevo" class="btn btn-success"><i class="fa fa-plus"></i></a>
+<table class="m-datatable" id="html_table" width="100%">
+    <tr>
+        <th>
+            Id Venta
+        </th>
+        <th>
+            Producto
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Total
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idVenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total)
+            </td>
+            <td>
+                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details" id="btnEditar">
+                    <i class="la la-edit"></i>
+                </a>
+                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete" id="btnEliminar">
+                    <i class="la la-trash"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
