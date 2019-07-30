@@ -9,7 +9,7 @@ using CapaEntidad;
 
 namespace CapaDatos
 {
-   public class ProductoDATA
+    public class ClienteDATA
     {
         SqlConnection conexion;
         SqlCommand cmd;
@@ -17,31 +17,30 @@ namespace CapaDatos
         Conexion cn = new Conexion();
         private string errores;
 
-        public IEnumerable<Producto> listarProducto()
+        public IEnumerable<Cliente> listarCliente()
         {
-            List<Producto> lista = new List<Producto>();
+            List<Cliente> lista = new List<Cliente>();
             try
             {
                 conexion = cn.Conectar();
-                cmd = new SqlCommand("SP_DBTEST_S_PRODUCTO", conexion);
+                cmd = new SqlCommand("SP_DBTEST_S_CLIENTE", conexion);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 dr = null;
                 conexion.Open();
                 dr = cmd.ExecuteReader();
-                Producto objeto = null;
+                Cliente objeto = null;
                 while (dr.Read())
                 {
-                    objeto = new Producto();
-                    objeto.idProducto = Convert.ToInt32(dr["idProducto"]);
-                    objeto.Tipo = Convert.ToString(dr["Tipo"]);
-                    objeto.nombre = Convert.ToString(dr["Nombre"]);
-                    objeto.descripcion = Convert.ToString(dr["Descripcion"]);
-                    objeto.precioCompra = Convert.ToString(dr["PrecioCompra"]);
-                    objeto.precioVenta = Convert.ToString(dr["PrecioVenta"]);
-                    objeto.stockActual = Convert.ToString(dr["StockActual"]);
-                    objeto.stockMinino = Convert.ToString(dr["StockMin"]);
-                    
+                    objeto = new Cliente();
+                    objeto.idCliente = Convert.ToInt32(dr["idCliente"]);
+                    objeto.nombres = Convert.ToString(dr["Nombre"]);
+                    objeto.nomCom = Convert.ToString(dr["nomCom"]);
+                    //objeto.apePaterno = Convert.ToString(dr["ApellidoPaterno"]);
+                    //objeto.apeMaterno = Convert.ToString(dr["ApellidoMaterno"]);
+                    objeto.telefono = Convert.ToString(dr["Telefono"]);
+                    objeto.dni = Convert.ToInt32(dr["DNI"]);
+
 
                     lista.Add(objeto);
                 }
@@ -61,23 +60,22 @@ namespace CapaDatos
             }
             return lista;
         }
-        public Boolean RegistrarProducto(string tipo, string nombre, string desc, string prcom, string prvent, string stockact, string stockmin)
+        public Boolean RegistrarCliente(string nombre, string apepat, string apemat, string telef, string dni)
         {
             try
             {
                 conexion = cn.Conectar();
-                SqlCommand cmd = new SqlCommand("SP_DBTEST_I_PRODUCTO", conexion);
+                SqlCommand cmd = new SqlCommand("SP_DBTEST_I_CLIENTE", conexion);
 
 
                 //Definimos los parámetros de entrada
 
-                cmd.Parameters.AddWithValue("@instipo", tipo);
                 cmd.Parameters.AddWithValue("@insnombre", nombre);
-                cmd.Parameters.AddWithValue("@insdesc", desc);
-                cmd.Parameters.AddWithValue("@insprcom", prcom);
-                cmd.Parameters.AddWithValue("@insprvent", prvent);
-                cmd.Parameters.AddWithValue("@insstockact", stockact);
-                cmd.Parameters.AddWithValue("@insstockmin", stockmin);
+                cmd.Parameters.AddWithValue("@insappat", apepat);
+                cmd.Parameters.AddWithValue("@insapmat", apemat);
+                cmd.Parameters.AddWithValue("@instelf", telef);
+                cmd.Parameters.AddWithValue("@insdni", dni);
+                
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 conexion.Open();

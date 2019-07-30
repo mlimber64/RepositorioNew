@@ -1,9 +1,12 @@
-﻿<div class="modal fade" id="myModalCreate" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+﻿<div class="modal fade" id="myModalCreate" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header" style="background-color:#f1f2f6">
+
                 <h5 class="modal-title" id="exampleModalLabel">
-                    REGISTRAR DETALLE ORDEN DE SERVICIO ANALISIS CLINICOS
+                    REGISTRAR PRODUCTO
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">
@@ -12,251 +15,88 @@
                 </button>
             </div>
             <div class="modal-body">
+                <form id="frmModal">
+                    <div class="form-group m-form__group row">
+                        <div class="col-lg-6">
+                            <label class="">TIPO :</label>
 
-                <div class="form-group m-form__group row">
-                    <div class="col-lg-14">
-                        <div class="m-accordion m-accordion--default m-accordion--solid m-accordion--section  m-accordion--toggle-arrow" role="tablist" id="m_accordion_10">
-
-                            <div class="m-accordion__item">
-                                <div class="m-accordion__item-head" role="tab" id="m_accordion_10_item_1_head" data-toggle="collapse" href="#m_accordion_10_item_1_body" aria-expanded="true">
-                                    <span class="m-accordion__item-icon">
-                                        <i class="fa flaticon-user-ok"></i>
-                                    </span>
-                                    <span class="m-accordion__item-title">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">
-                                                Datos Orden Análisis
-                                            </font>
-                                        </font>
-                                    </span>
-                                    <span class="m-accordion__item-mode"></span>
-                                </div>
-                                <div class="m-accordion__item-body collapse show" id="m_accordion_10_item_1_body" role="tabpanel" aria-labelledby="m_accordion_10_item_1_head" data-parent="#m_accordion_10">
-                                    <div class="m-accordion__item-content">
-                                        <div class="col-lg-12">
-                                            <font style="vertical-align: inherit;">
-                                                <font style="vertical-align: inherit;">
-                                                    Datos Paciente
-                                                </font>
-                                            </font>
-                                            <br>
-                                            <div class="form-group m-form__group row">
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp &nbsp   &nbsp   &nbsp &nbsp  &nbsp  &nbsp  &nbsp  Codigo : <b><span id="spCodigo"></span></b>
-                                                </span>
+                            @Html.DropDownList("tipocre", (SelectList)ViewBag.TipoProducto, new { @style = "width:70%" })
 
 
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp  &nbsp   &nbsp  &nbsp &nbsp  &nbsp  &nbsp &nbsp  Nombre : <b><span id="spNom"></span></b>
-                                                </span>
-                                            </div>
-                                            <br>
-                                            <div class="form-group m-form__group row">
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp  &nbsp   &nbsp  &nbsp &nbsp  &nbsp  &nbsp &nbsp  Factor RH : <b><span id="spFac"></span></b>
-                                                </span>
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp  &nbsp   &nbsp  &nbsp &nbsp  &nbsp  &nbsp &nbsp Sexo : <b><span id="spSexoo"></span></b>
-                                                </span>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp &nbsp  &nbsp &nbsp  &nbsp   &nbsp   &nbsp &nbsp Grupo Sanguineo : <b><span id="spGrupo"></span></b>
-                                                </span>
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp  &nbsp   &nbsp  &nbsp &nbsp  &nbsp  &nbsp &nbsp  Edad : <b><span id="spEdad1"></span><span id="spEdad2"></span></b>
-                                                </span>
-                                            </div>
+                            <span class="m-form__help"></span>
+                        </div>
 
 
+                        <div class="col-lg-6">
+                            
+                            <label class="">NOMBRE :</label>
+
+                            <input type="text" class="form-control m-input" id="nomcre">
 
 
-                                            <br>
-                                            <br>
-                                            <font style="vertical-align: inherit;">
-                                                <font style="vertical-align: inherit;">
-                                                    Datos Orden Servicio Análisis
-                                                </font>
-                                            </font>
-                                            <br>
-                                            <div class="form-group m-form__group row">
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp &nbsp   &nbsp   &nbsp &nbsp  &nbsp  &nbsp  &nbsp  Codigo Orden : <b><span id="spCod"></span></b>
-                                                </span>
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp   Estado : <b><span id="spEstado"></span></b>
-                                                </span>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp  &nbsp   &nbsp  &nbsp &nbsp  &nbsp  &nbsp &nbsp Fecha Toma Muestra : <b><span id="spToma"></span></b>
-                                                </span>
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp   Tipo Muestra : <b><span id="spTipo"></span></b>
-                                                </span>
-                                            </div>
-                                            <div class="form-group m-form__group row">
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp &nbsp  &nbsp &nbsp  &nbsp   &nbsp   &nbsp &nbsp Especialista Solicitante : <b><span id="spEsp"></span></b>
-                                                </span>
-                                                @*<span class="m-form__help" style="font-size:12px">
-                                                        &nbsp   Laboratorio : <b><span id="spLab"></span></b>
-                                                    </span>*@
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="m-accordion__item">
-                                    <div class="m-accordion__item-head" role="tab" id="m_accordion_7_item_2_head" data-toggle="collapse" href="#m_accordion_7_item_2_body" aria-expanded="true">
-                                        <span class="m-accordion__item-icon">
-                                            <i class="fa flaticon-user-ok"></i>
-                                        </span>
-                                        <span class="m-accordion__item-title">
-                                            <font style="vertical-align: inherit;">
-                                                <font style="vertical-align: inherit;">
-                                                    Detalle Orden de Servicio Análisis
-                                                </font>
-                                            </font>
-                                        </span>
-                                        <span class="m-accordion__item-mode"></span>
-                                    </div>
-
-                                    <div class="m-accordion__item-body collapse" id="m_accordion_7_item_2_body" role="tabpanel" aria-labelledby="m_accordion_7_item_2_head" data-parent="#m_accordion_7">
-                                        <div class="m-accordion__item-content">
-
-
-                                            <div class="form-group m-form__group row">
-                                                <div class="col-lg-6">
-                                                    <label class="">Tipo Analisis Clinicos :</label>
-
-                                                    @Html.DropDownList("anatip", (SelectList)ViewBag.Categoria, "--Selecciones Tipo--", new { @style = "width:80%" })
-
-
-                                                    <span class="m-form__help">
-                                                    </span>
-                                                </div>
-
-                                                <div class="col-lg-6">
-                                                    <label class="">Analisis Clinicos :</label>
-
-                                                    @Html.DropDownList("anacli", (SelectList)ViewBag.Categoria, "--Selecciones Analisis--", new { @style = "width:80%" })
-
-                                                    <span class="m-form__help">
-                                                    </span>
-                                                </div>
-
-                                                <div class="col-lg-6">
-                                                    <label class="">Grupo Analisis Clinicos :</label>
-
-                                                    @Html.DropDownList("grupcli", (SelectList)ViewBag.Categoria, new { @style = "width:80%" })
-
-                                                    <span class="m-form__help">
-                                                    </span>
-                                                </div>
-                                                <button type="button" class="btn btn-success" id="btnAna" style='width:30px; height:30px'>+</button>
-                                            </div>
-                                            <br />
-                                            <div class="m-section">
-                                                <div class="m-section__content">
-                                                    <table class="table m-table m-table--head-bg-success">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>
-                                                                    ID
-                                                                </th>
-                                                                <th>
-                                                                    ID Analisis
-                                                                </th>
-                                                                <th>
-                                                                    Nombre Análisis
-                                                                </th>
-                                                                <th>
-                                                                    UM
-                                                                </th>
-                                                                <th>
-                                                                    Moneda
-                                                                </th>
-                                                                <th>
-                                                                    PrecioUnitario
-                                                                </th>
-                                                                <th>
-                                                                    Acciones
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
-                                                    </table>
-                                                    <table class="table m-table m-table--head-bg-success" id="listDetalle"></table>
-                                                </div>
-                                            </div>
-                                            <br />
-                                            <br />
-                                            <div class="form-group m-form__group row">
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp &nbsp   &nbsp   &nbsp &nbsp  &nbsp  &nbsp  &nbsp  Moneda : <b><span id="spMoneda">Soles</span></b>
-                                                </span>
-                                                <span class="m-form__help" style="font-size:12px">
-                                                    &nbsp &nbsp   &nbsp   &nbsp &nbsp  &nbsp  &nbsp  &nbsp  Total : <b><span id="spStotal"></span></b>
-                                                </span>
-                                                @*<span class="m-form__help" style="font-size:12px">
-                                                        &nbsp &nbsp   &nbsp   &nbsp &nbsp  &nbsp  &nbsp  &nbsp  % Impuesto : <b><span id="spIGV">18</span></b>
-                                                    </span>
-                                                    <span class="m-form__help" style="font-size:12px">
-                                                        &nbsp &nbsp   &nbsp   &nbsp &nbsp  &nbsp  &nbsp  &nbsp  Valor Impuesto : <b><span id="spValor"></span></b>
-                                                    </span>
-                                                    <span class="m-form__help" style="font-size:12px">
-                                                        &nbsp &nbsp   &nbsp   &nbsp &nbsp  &nbsp  &nbsp  &nbsp  Total : <b><span  id="spTotal"></span></b>
-                                                    </span>*@
-
-                                            </div>
-                                            <br>
-                                            <br>
-                                            <div class="col-lg-5">
-                                                <label class="">Fecha Esti. Entrega de Resultados :</label>
-
-                                                <input type="text" class="form-control m-input" id="fecharesu">
-
-                                            </div>
-
-                                            <div class="col-lg">
-                                                <br />
-                                                <label class="">Comentarios/Observaciones :</label>
-
-                                                <textarea class="form-control m-input" rows="3" id="obscre"></textarea>
-
-
-                                                <span class="m-form__help">
-                                                </span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <span class="m-form__help"></span>
                         </div>
                     </div>
-                </div>
+           
+            <div class="form-group m-form__group row">
 
+                <div class="col-lg-6">
+                    <label class="">PRECIO COMPRA :</label>
+
+                    <input type="text" class="form-control m-input" id="prcomcre">
+
+
+                    <span class="m-form__help"> </span>
+                </div>
+                <div class="col-lg-6">
+                    <label class="">PRECIO VENTA :</label>
+
+                    <input type="text" class="form-control m-input" id="prvencre">
+
+
+                    <span class="m-form__help"> </span>
+                </div>
             </div>
+            <div class="form-group m-form__group row">
+                <div class="col-lg-6">
+                    <label class="">STOCK ACTUAL :</label>
+
+                    <input type="text" class="form-control m-input" id="stkactcre">
+
+
+                    <span class="m-form__help"> </span>
+                </div>
+                <div class="col-lg-6">
+                    <label class="">STOCK MINIMO :</label>
+
+                    <input type="text" class="form-control m-input" id="stkmincre">
+
+
+                    <span class="m-form__help"> </span>
+                </div>
+            </div>
+            <div class="col-lg">
+
+                <label class="">DESCRIPCIÓN :</label>
+
+                <textarea class="form-control m-input" rows="3" id="descre"></textarea>
+
+
+                <span class="m-form__help"></span>
+            </div>
+            
+            </form>
+
+        </div>
             <div class="modal-footer" style="background-color:#f1f2f6">
-                <button type="button" class="btn btn-metal" data-dismiss="modal" id="btnCancelar">
+                <button type="button" class="btn btn-metal" data-dismiss="modal" id="btnCancelCreatePesona">
                     Cancelar
                 </button>
-                <button type="button" class="btn btn-success" id="btnGuardarDatos">
+                <button type="button" class="btn btn-success" id="btnSendCreate">
                     Registrar
                 </button>
             </div>
         </div>
     </div>
-</div>
+ </div>
 
-<style>
-    #resultado1 {
-        margin-left: auto;
-        margin-right: 0;
-    }
-</style>
-<script>
-    $("#fecharesu").datepicker().datepicker('setDate', new Date());
-</script>

@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriaMANAGER.cs" />
+    <Compile Include="ClienteMANAGER.cs" />
     <Compile Include="DetalleVentaMANAGER.cs" />
     <Compile Include="EmpleadoMANAGER.cs" />
     <Compile Include="ProductoMANAGER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoProductoMANAGER.cs" />
     <Compile Include="UsuarioMANAGER.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,9 @@ var Select2 = function() {
         $('#cate').select2({
             placeholder: "Select a state"
         });
+        $('#tipocre').select2({
+            placeholder: "Select a state"
+        });
 
         // nested
         $('#m_select2_2, #m_select2_2_validate').select2({
@@ -119,7 +122,7 @@ var Select2 = function() {
         //});
 
         // disabled results
-        $('#m_select2_8').select2({
+        $('#tipocre').select2({
             placeholder: "Select an option"
         });
 

@@ -15,9 +15,9 @@ namespace CapaNegocio
         {
             return data.listarProducto();
         }
-        public Boolean RegistrarProducto(string codigo, string nombre, string preuni, string categ, string descri, string stock, string imagen)
+        public Boolean RegistrarProducto(string tipo, string nombre, string desc, string prcom, string prvent, string stockact, string stockmin)
         {
-            return data.RegistrarProducto(codigo,nombre,preuni,categ,descri,stock, imagen);
+            return data.RegistrarProducto(tipo, nombre, desc, prcom, prvent, stockact, stockmin);
         }
     }
 }

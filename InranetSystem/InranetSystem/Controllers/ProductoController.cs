@@ -14,7 +14,8 @@ namespace InranetSystem.Controllers
     {
         // GET: Producto
         ProductoMANAGER managerProducto = new ProductoMANAGER();
-        CategoriaMANAGER managerCategoria = new CategoriaMANAGER();
+        //CategoriaMANAGER managerCategoria = new CategoriaMANAGER();
+        TipoProductoMANAGER managerTipoProducto = new TipoProductoMANAGER();
         int numreg = 5;
         public ActionResult IndexProducto(int? pag = null)
         {
@@ -39,103 +40,40 @@ namespace InranetSystem.Controllers
             
             return View(lista);
         }
-        public ActionResult Producto()
-        {
-            IEnumerable<Producto> objeto = null;
-            objeto = managerProducto.listarProducto();
-            ViewBag.Categoria = new SelectList(managerCategoria.listarCategoria(), "idCategoria", "Nombre");
-            return View(objeto);
-        }
+        
         public ActionResult IndexProductos()
         {
             IEnumerable<Producto> objeto = null;
             objeto = managerProducto.listarProducto();
-            //ViewBag.Categoria = new SelectList(managerCategoria.listarCategoria(), "idCategoria", "Nombre");
+            ViewBag.TipoProducto = new SelectList(managerTipoProducto.listarTipoProducto(), "idTipo", "Nombre");
             return View(objeto);
         }
-
-        [HttpPost]
-        public ActionResult sendFile(HttpPostedFileBase file)
+        public JsonResult ListAjax()
         {
-            //subir imagen
-            if (file.ContentLength > 0)
+            IEnumerable<Producto> objeto = null;
+
+            objeto = managerProducto.listarProducto();
+
+            return Json(objeto);
+        }
+        public JsonResult CreateProducto(string tipo, string nombre, string desc, string prcom, string prvent, string stockact, string stockmin)
+        {
+
+            try
             {
-                string _FileName = Path.GetFileName(file.FileName);
-                string _path = Path.Combine(Server.MapPath("~/images"), _FileName);
-                file.SaveAs(_path);
+                managerProducto.RegistrarProducto(tipo, nombre, desc, prcom, prvent, stockact, stockmin);
+                string msg = "Exito se guardo controller";
+                return Json(new { msg });
+
             }
-            String msg = "exito";
-            return Json(new { msg });
+            catch (Exception e)
+            {
+                string msg = "Error";
+                return Json(new { msg });
+            }
+
         }
 
-        [HttpPost]
-        public ActionResult UploadFiles()
-        {
-            // Checking no of files injected in Request object  
-            if (Request.Files.Count > 0)
-            {
-                try
-                {
-                    //  Get all files from Request object  
-                    HttpFileCollectionBase files = Request.Files;
-                    for (int i = 0; i < files.Count; i++)
-                    {
-                        //string path = AppDomain.CurrentDomain.BaseDirectory + "Uploads/";  
-                        //string filename = Path.GetFileName(Request.Files[i].FileName);  
-
-                        HttpPostedFileBase file = files[i];
-                        string fname;
-
-                        // Checking for Internet Explorer  
-                        if (Request.Browser.Browser.ToUpper() == "IE" || Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
-                        {
-                            string[] testfiles = file.FileName.Split(new char[] { '\\' });
-                            fname = testfiles[testfiles.Length - 1];
-                        }
-                        else
-                        {
-                            fname = file.FileName;
-                        }
-
-                        // Get the complete folder path and store the file inside it.  
-                        fname = Path.Combine(Server.MapPath("~/images/"), fname);
-                        file.SaveAs(fname);
-
-                        string codigo = Request["codigo"];
-                        string nombre = Request["nombre"];
-                        string preuni = Request["preuni"];
-                        string categ = Request["categ"];
-                        string descri = Request["descri"];
-                        string stock = Request["stock"];
-                        string imagen = Request["imagen"];
-
-                        managerProducto.RegistrarProducto(codigo, nombre, preuni, categ, descri, stock, imagen);
-
-                    }
-                    // Returns message that successfully uploaded  
-                    return Json("Exito");
-                }
-                catch (Exception ex)
-                {
-                    return Json("Error occurred. Error details: " + ex.Message);
-                }
-
-            }
-            else
-            {
-                string codigo = Request["codigo"];
-                string nombre = Request["nombre"];
-                string preuni = Request["preuni"];
-                string categ = Request["categ"];
-                string descri = Request["descri"];
-                string stock = Request["stock"];
-                string imagen = Request["imagen"];
-
-                managerProducto.RegistrarProducto(codigo, nombre, preuni, categ, descri, stock, imagen);
-
-                return Json("Exito");
-            }
-        }
 
     }
 }

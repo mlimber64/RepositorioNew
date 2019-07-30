@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    public class Venta
+    public class TipoProducto
     {
-        public int idVenta { set; get; }
-        public int idCliente { set; get; }
-        public string total { set; get; }
+        public int idTipo { set; get; }
+        public string nombre { set; get; }
         public Boolean activo { set; get; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CapaEntidad.Producto>
+﻿@model IEnumerable<CapaEntidad.Cliente>
 
 @{
     Layout = "~/Views/Plantilla/View1.cshtml";
@@ -58,42 +58,36 @@
 
         $("#btnNuevo").click(function () {
             $("#nomcre").val('');
-            $("#prcomcre").val('');
-            $("#prvencre").val('');
-            $("#stkactcre").val('');
-            $("#stkmincre").val('');
-            $("#descre").val('');
+            $("#apatcre").val('');
+            $("#apmatcre").val('');
+            $("#telcre").val('');
+            $("#dnicre").val('');
             $("#myModalCreate").modal({ backdrop: "static" }, { keyboard: false });
         });
 
         $("#myModalCreate").on("click", "#btnSendCreate", function () {
 
-            let tipo = $("#tipocre").val();
-            let tipotext = $("#tipocre option:selected").text();
+            //nombre, apepat, apemat, telef, dni
             let nombre = $("#nomcre").val();
-            let prcom = $("#prcomcre").val();
-            let prvent = $("#prvencre").val();
-            let stockact = $("#stkactcre").val();
-            let stockmin = $("#stkmincre").val();
-            let desc = $("#descre").val();
+            let apepat = $("#apatcre").val();
+            let apemat = $("#apmatcre").val();
+            let telef = $("#telcre").val();
+            let dni = $("#dnicre").val();
 
-            //tipo, nombre, desc, prcom, prvent, stockact, stockmin
 
             let datasend = {
-                tipo: tipo,
                 nombre: nombre,
-                desc: desc,
-                prcom: prcom,
-                prvent: prvent,
-                stockact: stockact,
-                stockmin: stockmin
+                apepat: apepat,
+                apemat: apemat,
+                telef: telef,
+                dni: dni
 
 
             };
 
 
             $.ajax({
-                url:'@Url.Action("CreateProducto", "Producto")',
+                url:'@Url.Action("CreateCliente", "Cliente")',
                 type: "POST",
                 data: JSON.stringify(datasend),
                 dataType: 'json',
@@ -124,7 +118,7 @@
 
         function updateTableAjax() {
            $.ajax({
-                url:'@Url.Action("ListAjax", "Producto")',
+                url:'@Url.Action("ListAjax", "Cliente")',
                 type: "POST",
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8',
@@ -136,15 +130,12 @@
                     $(".m-datatable__body").empty();
 
                     for (i = 0; i <= s.length; i++) {
-                        $(".m-datatable__body").append("<tr data-row='8' class='m-datatable__row m-datatable__row--even'>"
-                            + `<td data-field='#' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].idProducto}</span></td>`
-                            + `<td data-field='Tipo' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].Tipo}</span></td>`
-                            + `<td data-field='Nombre'  class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].nombre}</span></td>`
-                            + `<td data-field='Descripcion' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].descripcion}</td>`
-                            + `<td data-field='Precio Compra' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].precioCompra}</td>`
-                            + `<td data-field='Precio Venta' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].precioVenta}</td>`
-                            + `<td data-field='Stock Actual' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].stockActual}</td>`
-                            + `<td data-field='Stock Minimo' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].stockMinino}</td>`
+                        $(".m-datatable__body").append("<tr data-row='5' class='m-datatable__row m-datatable__row--even'>"
+                            + `<td data-field='Id' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].idCliente}</span></td>`
+                            + `<td data-field='Nombre Alergia' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].nombres}</span></td>`
+                            + `<td data-field='Apellidos  class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].nomCom}</span></td>`
+                            + `<td data-field='Telefono' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].telefono}</td>`
+                            + `<td data-field='DNI' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].dni}</td>`
                             + "<td data-field='ACCIONES'  class='m-datatable__cell--center'><span style='width: 110px;'><button id='btnConsultar' class='m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill'><i class='flaticon-search-magnifier-interface-symbol'></i></button><button id='btnEditar' class='m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill'><i class='la la-edit'></i></button><button id='btnEliminar' class='m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill'><i class='la la-trash'></i></button></span></td></tr>");
 
 
@@ -161,6 +152,8 @@
 
 </script>
 
+
+
 <a href="#" id="btnNuevo" class="btn btn-success"><i class="fa fa-plus"></i></a>
 <table class="m-datatable" id="html_table" width="100%">
     <tr>
@@ -168,25 +161,16 @@
             #
         </th>
         <th>
-            Tipo
-        </th>
-        <th>
             Nombre
         </th>
         <th>
-            Descripción
+            Apellidos
         </th>
         <th>
-            Precio Compra
+            Telefono
         </th>
         <th>
-            Precio Venta
-        </th>
-        <th>
-            Stock Actual
-        </th>
-        <th>
-            Stock Minimo
+            DNI
         </th>
 
         <th>Acciones</th>
@@ -196,30 +180,21 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.idProducto)
+                @Html.DisplayFor(modelItem => item.idCliente)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
+                @Html.DisplayFor(modelItem => item.nombres)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precioCompra)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precioVenta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.stockActual)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.stockMinino)
+                @Html.DisplayFor(modelItem => item.nomCom)
             </td>
 
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dni)
+            </td>
             <td>
 
                 <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details" id="btnEditar">
@@ -229,10 +204,8 @@
                     <i class="la la-trash"></i>
                 </a>
             </td>
-
         </tr>
     }
 
 </table>
-@Html.Partial("~/Views/Producto/modalCrear.cshtml")
-
+@Html.Partial("~/Views/Cliente/modalCrear.cshtml")
