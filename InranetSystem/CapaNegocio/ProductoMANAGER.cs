@@ -19,5 +19,9 @@ namespace CapaNegocio
         {
             return data.RegistrarProducto(tipo, nombre, desc, prcom, prvent, stockact, stockmin);
         }
+        public IEnumerable<Producto> ComboProducto(int id)
+        {
+            return data.ComboProducto(id);
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace CapaDatos
                 {
                     objeto = new Producto();
                     objeto.idProducto = Convert.ToInt32(dr["idProducto"]);
-                    objeto.Tipo = Convert.ToString(dr["Tipo"]);
+                    objeto.Tipo = Convert.ToString(dr["idProducto"]);
                     objeto.nombre = Convert.ToString(dr["Nombre"]);
                     objeto.descripcion = Convert.ToString(dr["Descripcion"]);
                     objeto.precioCompra = Convert.ToString(dr["PrecioCompra"]);
@@ -99,6 +99,51 @@ namespace CapaDatos
                 cmd = null;
                 cn = null;
             }
+        }
+        public IEnumerable<Producto> ComboProducto(int id)
+        {
+            List<Producto> lista = new List<Producto>();
+            try
+            {
+                conexion = cn.Conectar();
+                cmd = new SqlCommand("SP_DBTEST_S_COMBOPRODUCTO", conexion);
+                cmd.Parameters.AddWithValue("@cboid", id);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                dr = null;
+                conexion.Open();
+                dr = cmd.ExecuteReader();
+                Producto objeto = null;
+                while (dr.Read())
+
+                {
+
+
+                    objeto = new Producto();
+                    objeto.idProducto = Convert.ToInt32(dr["idProducto"]);
+                    objeto.nombre = Convert.ToString(dr["Nombre"]);
+
+
+                    //agregamos a las lista
+                    lista.Add(objeto);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                errores = ex.Message;
+
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+
+                }
+                conexion.Dispose();
+            }
+
+            return lista;
         }
     }
 }

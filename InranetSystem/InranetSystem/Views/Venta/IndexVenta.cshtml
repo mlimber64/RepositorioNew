@@ -1,0 +1,261 @@
+﻿@model IEnumerable<CapaEntidad.Venta>
+
+@{
+    Layout = "~/Views/Plantilla/View1.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.intellisense.js"></script>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        var prmNot = {
+            type: 'danger',
+            timer: 1000,
+            z_index: 2000,
+            animate: {
+                enter: 'animated bounce',
+                exit: 'animated bounce'
+            },
+            placement: {
+                from: 'top',
+                align: 'center'
+            }
+        };
+
+        var prmNot2 = {
+            type: 'alert alert-warning',
+            timer: 1000,
+            z_index: 2000,
+            animate: {
+                enter: 'animated bounce',
+                exit: 'animated bounce'
+            },
+            placement: {
+                from: 'top',
+                align: 'center'
+            }
+        };
+        var prmNot3 = {
+            type: 'alert alert-success alert-dismissible fade show',
+            timer: 1000,
+
+            z_index: 2000,
+            animate: {
+                enter: 'animated bounce',
+                exit: 'animated bounce'
+            },
+            placement: {
+                from: 'top',
+                align: 'center'
+            }
+        };
+
+        $("#btnNuevo").click(function () {
+            $("#nomcre").val('');
+            $("#apatcre").val('');
+            $("#apmatcre").val('');
+            $("#telcre").val('');
+            $("#dnicre").val('');
+            $("#nomcre").val('');
+            $("#apatcre").val('');
+            $("#apmatcre").val('');
+            $("#telcre").val('');
+            $("#dnicre").val('');
+            $("#nomcre").val('');
+            $("#apatcre").val('');
+            $("#apmatcre").val('');
+            $("#telcre").val('');
+            $("#dnicre").val('');
+            $("#myModalCreate").modal({ backdrop: "static" }, { keyboard: false });
+        });
+
+        $("#myModalCreate").on("click", "#btnSendCreate", function () {
+
+            //nombre, apepat, apemat, telef, dni
+            let nombre = $("#nomcre").val();
+            let apepat = $("#apatcre").val();
+            let apemat = $("#apmatcre").val();
+            let telef = $("#telcre").val();
+            let dni = $("#dnicre").val();
+
+
+            let datasend = {
+                nombre: nombre,
+                apepat: apepat,
+                apemat: apemat,
+                telef: telef,
+                dni: dni
+
+
+            };
+
+
+            $.ajax({
+                url:'@Url.Action("CreateCliente", "Cliente")',
+                type: "POST",
+                data: JSON.stringify(datasend),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    console.log(JSON.stringify(result) + typeof result);
+                    if (result) {
+                        $("#myModalCreate").modal("hide");
+                        updateTableAjax();
+                        var content = {};
+                        content.message = 'El Cliente se registro correctamente ';
+                        content.icon = 'icon la la-check';
+                        $.notify(content, prmNot3)
+
+                        setTimeout(function () {
+
+                        }, 1000);
+                    } else {
+                        console.log('Ocurrio un error');
+                    }
+
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+               });
+        });
+
+        function updateTableAjax() {
+           $.ajax({
+                url:'@Url.Action("ListAjax", "Cliente")',
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    console.log(JSON.stringify(result));
+                    let s = result;
+                    console.log(s.length);
+                    let i;
+                    $(".m-datatable__body").empty();
+
+                    for (i = 0; i <= s.length; i++) {
+                        $(".m-datatable__body").append("<tr data-row='5' class='m-datatable__row m-datatable__row--even'>"
+                            + `<td data-field='Id' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].idCliente}</span></td>`
+                            + `<td data-field='Nombre Alergia' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].nombres}</span></td>`
+                            + `<td data-field='Apellidos  class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].nomCom}</span></td>`
+                            + `<td data-field='Telefono' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].telefono}</td>`
+                            + `<td data-field='DNI' class="m-datatable__cell m-datatable__cell--sort"><span style='width: 110px;'>${result[i].dni}</td>`
+                            + "<td data-field='ACCIONES'  class='m-datatable__cell--center'><span style='width: 110px;'><button id='btnConsultar' class='m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill'><i class='flaticon-search-magnifier-interface-symbol'></i></button><button id='btnEditar' class='m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill'><i class='la la-edit'></i></button><button id='btnEliminar' class='m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill'><i class='la la-trash'></i></button></span></td></tr>");
+
+
+                    };
+                },
+                error: function (err) {
+                    console.log(err.statusText);
+                }
+
+            });
+        }
+
+    });
+
+</script>
+
+
+<a href="#" id="btnNuevo" class="btn btn-success"><i class="fa fa-plus"></i></a>
+<table class="m-datatable" id="html_table" width="100%">
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Datos Cliente
+        </th>
+        <th>
+            Total
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idVenta)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.nombapells)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total)
+            </td>
+
+
+            <td>
+                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details" id="btnEditar">
+                    <i class="la la-edit"></i>
+                </a>
+                <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete" id="btnEliminar">
+                    <i class="la la-trash"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.Partial("~/Views/Venta/modalCrear.cshtml")
+
+<script>
+
+
+        $(document).ready(function () {
+
+            sendAjax(1);
+
+            $("#tipopro").change(function () {
+                let idana = $("#tipopro option:selected").val();
+                console.log(idana);
+                sendAjax(idana);
+            });
+
+            function sendAjax(idana) {
+                let datasend = {
+                    id: idana
+                };
+
+                $.ajax({
+                    url: '@Url.Action("ComboProducto", "Venta")',
+                    data: JSON.stringify(datasend),
+                    type: 'POST',
+                    dataType: 'json',
+                    crossDomain: true,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (result) {
+                        console.log("resultado: " + JSON.stringify(result.objeto[0].LABANALIS_Id));
+                        console.log(result.objeto.length);
+                        var le = result.objeto;
+                        var ta = le.length;
+                        $("#produc").empty();
+                        for (i = 0; i < ta ; i++) {
+
+                            $("#produc").append(`<option value='${result.objeto[i].idProducto}'>${result.objeto[i].nombre}</option>`);
+
+                        }
+
+                    },
+                    error: function (error) {
+                        alert('Error!' + JSON.stringify(error));
+                    }
+                });
+            }
+
+            
+
+
+        });
+
+        
+</script>

@@ -9,8 +9,11 @@ namespace CapaEntidad
     public class Venta
     {
         public int idVenta { set; get; }
-        public int idCliente { set; get; }
+        public string idCliente { set; get; }
         public string total { set; get; }
         public Boolean activo { set; get; }
+        //Agregar Datos de Cliente
+        
+        public string nombapells { set; get; }
     }
 }

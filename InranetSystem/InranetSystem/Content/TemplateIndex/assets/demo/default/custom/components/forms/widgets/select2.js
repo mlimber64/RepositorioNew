@@ -125,6 +125,12 @@ var Select2 = function() {
         $('#tipocre').select2({
             placeholder: "Select an option"
         });
+        $('#tipopro').select2({
+            placeholder: "Select an option"
+        });
+        $('#produc').select2({
+            placeholder: "Select an option"
+        });
 
         // limiting the number of selections
         $('#m_select2_9').select2({
