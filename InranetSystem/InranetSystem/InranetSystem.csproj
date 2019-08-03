@@ -122,10 +122,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\DetalleVentaController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\VentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4961,6 +4964,13 @@
     <Content Include="Views\Producto\modalCrear.cshtml" />
     <Content Include="Views\Plantilla\View1.cshtml" />
     <Content Include="Views\Producto\Producto.cshtml" />
+    <Content Include="Views\Producto\IndexProductos.cshtml" />
+    <Content Include="Views\DetalleVenta\IndexDetVenta.cshtml" />
+    <Content Include="Views\DetalleVenta\modalCrear.cshtml" />
+    <Content Include="Views\Cliente\IndexCliente.cshtml" />
+    <Content Include="Views\Cliente\modalCrear.cshtml" />
+    <Content Include="Views\Venta\IndexVenta.cshtml" />
+    <Content Include="Views\Venta\modalCrear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

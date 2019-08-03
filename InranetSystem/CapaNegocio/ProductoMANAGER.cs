@@ -15,5 +15,13 @@ namespace CapaNegocio
         {
             return data.listarProducto();
         }
+        public Boolean RegistrarProducto(string tipo, string nombre, string desc, string prcom, string prvent, string stockact, string stockmin)
+        {
+            return data.RegistrarProducto(tipo, nombre, desc, prcom, prvent, stockact, stockmin);
+        }
+        public IEnumerable<Producto> ComboProducto(int id)
+        {
+            return data.ComboProducto(id);
+        }
     }
 }

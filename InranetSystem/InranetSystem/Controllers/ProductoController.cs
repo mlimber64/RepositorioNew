@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using CapaDatos;
 using CapaEntidad;
 using CapaNegocio;
@@ -13,6 +14,8 @@ namespace InranetSystem.Controllers
     {
         // GET: Producto
         ProductoMANAGER managerProducto = new ProductoMANAGER();
+        //CategoriaMANAGER managerCategoria = new CategoriaMANAGER();
+        TipoProductoMANAGER managerTipoProducto = new TipoProductoMANAGER();
         int numreg = 5;
         public ActionResult IndexProducto(int? pag = null)
         {
@@ -37,13 +40,39 @@ namespace InranetSystem.Controllers
             
             return View(lista);
         }
-        public ActionResult Producto()
+        
+        public ActionResult IndexProductos()
         {
             IEnumerable<Producto> objeto = null;
             objeto = managerProducto.listarProducto();
+            ViewBag.TipoProducto = new SelectList(managerTipoProducto.listarTipoProducto(), "idTipo", "Nombre");
             return View(objeto);
         }
+        public JsonResult ListAjax()
+        {
+            IEnumerable<Producto> objeto = null;
 
+            objeto = managerProducto.listarProducto();
+
+            return Json(objeto);
+        }
+        public JsonResult CreateProducto(string tipo, string nombre, string desc, string prcom, string prvent, string stockact, string stockmin)
+        {
+
+            try
+            {
+                managerProducto.RegistrarProducto(tipo, nombre, desc, prcom, prvent, stockact, stockmin);
+                string msg = "Exito se guardo controller";
+                return Json(new { msg });
+
+            }
+            catch (Exception e)
+            {
+                string msg = "Error";
+                return Json(new { msg });
+            }
+
+        }
 
 
     }

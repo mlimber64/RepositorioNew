@@ -9,7 +9,7 @@ using CapaEntidad;
 
 namespace CapaDatos
 {
-   public class UsuarioDATA
+   public  class VentaDATA
     {
         SqlConnection conexion;
         SqlCommand cmd;
@@ -17,31 +17,28 @@ namespace CapaDatos
         Conexion cn = new Conexion();
         private string errores;
 
-        public IEnumerable<Usuario> Login(string usu, string pass)
+        public IEnumerable<Venta> listarVenta()
         {
-            List<Usuario> lista = new List<Usuario>();
+            List<Venta> lista = new List<Venta>();
             try
             {
                 conexion = cn.Conectar();
-                cmd = new SqlCommand("USP_DBTEST_LOGIN_USUARIO", conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@insUsuario", usu);
-                cmd.Parameters.AddWithValue("@insContrasena", pass);
+                cmd = new SqlCommand("SP_DBTEST_S_VENTA", conexion);
 
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 dr = null;
                 conexion.Open();
                 dr = cmd.ExecuteReader();
+                Venta objeto = null;
                 while (dr.Read())
                 {
-                    Usuario objeto = new Usuario();
-                    objeto.email = Convert.ToString(dr["email"]);
-                    objeto.Contrasena = Convert.ToString(dr["contrasena"]);
-                    objeto.nombreCompleto = Convert.ToString(dr["nombreCompleto"]);
-
+                    objeto = new Venta();
+                    objeto.idVenta = Convert.ToInt32(dr["idVenta"]);
+                    objeto.nombapells = Convert.ToString(dr["apellido"]);
+                    objeto.total = Convert.ToString(dr["Total"]);
+                    
                     lista.Add(objeto);
-
                 }
-                dr.Close();
             }
             catch (Exception e)
             {
@@ -58,8 +55,5 @@ namespace CapaDatos
             }
             return lista;
         }
-
-
     }
 }
-

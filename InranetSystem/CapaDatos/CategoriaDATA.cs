@@ -9,7 +9,7 @@ using CapaEntidad;
 
 namespace CapaDatos
 {
-   public class UsuarioDATA
+   public class CategoriaDATA
     {
         SqlConnection conexion;
         SqlCommand cmd;
@@ -17,31 +17,29 @@ namespace CapaDatos
         Conexion cn = new Conexion();
         private string errores;
 
-        public IEnumerable<Usuario> Login(string usu, string pass)
+        public IEnumerable<Categoria> listarCategoria()
         {
-            List<Usuario> lista = new List<Usuario>();
+            List<Categoria> lista = new List<Categoria>();
             try
             {
                 conexion = cn.Conectar();
-                cmd = new SqlCommand("USP_DBTEST_LOGIN_USUARIO", conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@insUsuario", usu);
-                cmd.Parameters.AddWithValue("@insContrasena", pass);
+                cmd = new SqlCommand("SP_DBINTRANET_S_CATEGORIA", conexion);
 
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 dr = null;
                 conexion.Open();
                 dr = cmd.ExecuteReader();
+                Categoria objeto = null;
                 while (dr.Read())
                 {
-                    Usuario objeto = new Usuario();
-                    objeto.email = Convert.ToString(dr["email"]);
-                    objeto.Contrasena = Convert.ToString(dr["contrasena"]);
-                    objeto.nombreCompleto = Convert.ToString(dr["nombreCompleto"]);
+                    objeto = new Categoria();
+                    objeto.idCategoria = Convert.ToInt32(dr["idCategoria"]);
+                    objeto.nombre = Convert.ToString(dr["Nombre"]);
+                    objeto.descripcion = Convert.ToString(dr["Descripcion"]);
+
 
                     lista.Add(objeto);
-
                 }
-                dr.Close();
             }
             catch (Exception e)
             {
@@ -58,8 +56,5 @@ namespace CapaDatos
             }
             return lista;
         }
-
-
     }
 }
-

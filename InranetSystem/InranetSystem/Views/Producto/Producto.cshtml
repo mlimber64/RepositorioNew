@@ -22,7 +22,9 @@
     var rt;
     var imco;
 
-
+        //Padres
+        $("#padrecre").append("<option value='0'>No tiene</option>");
+        $("#CategoriaPadre").append("<option value='0'>No tiene</option>");
 
 
         $("#btnNuevo").click(function () {
@@ -45,16 +47,7 @@
 
             let nom = $("#nomcre").val();
             let des = $("#descre").val();
-
-
-            /*
-            let datasend = {
-                descat: des,
-                idpadre: idpa,
-                nomcat: nom,
-                foto: img
-            };
-            */
+            
             // Checking whether FormData is available in browser
             if (window.FormData !== undefined) {
 
@@ -114,28 +107,8 @@
                 alert("FormData is not supported.");
             }
         });
-
-
-        @*function sendDataCreate() {
-            $.ajax({
-                url: '@Url.Action("UploadFiles", "Categoria")',
-                type: "POST",
-                contentType: false, // Not to set any content header
-                processData: false, // Not to process data
-                contentType: 'application/json; charset=utf-8',
-                data: fileData,
-                success: function (result) {
-                    alert(result);
-                },
-                error: function (err) {
-                    alert(err.statusText);
-                }
-            });
-        }*@
-
-
-
-
+        
+        
 
 });
 
