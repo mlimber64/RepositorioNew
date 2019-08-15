@@ -16,5 +16,9 @@ namespace CapaEntidad
         public int dni { set; get; }
         public Boolean activo { set; get; }
         public string nomCom { set; get; }
+        
+        //busca por dni concatenar apellidos y nombres
+        public string apellidos { set; get; }
+
     }
 }

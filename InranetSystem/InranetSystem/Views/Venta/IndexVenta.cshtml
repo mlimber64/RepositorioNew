@@ -13,6 +13,10 @@
 <script>
     $(document).ready(function () {
 
+        $('[data-toggle="m-tooltip"]').tooltip();
+
+        var fnHC_AjaxSearchPersona_DNI;
+
         var prmNot = {
             type: 'danger',
             timer: 1000,
@@ -56,21 +60,17 @@
         };
 
         $("#btnNuevo").click(function () {
-            $("#nomcre").val('');
-            $("#apatcre").val('');
-            $("#apmatcre").val('');
-            $("#telcre").val('');
-            $("#dnicre").val('');
-            $("#nomcre").val('');
-            $("#apatcre").val('');
-            $("#apmatcre").val('');
-            $("#telcre").val('');
-            $("#dnicre").val('');
-            $("#nomcre").val('');
-            $("#apatcre").val('');
-            $("#apmatcre").val('');
-            $("#telcre").val('');
-            $("#dnicre").val('');
+            $('#formCreatePerson').trigger("reset");
+
+            $("#datasearch").val('');
+            $("#nomco").val('');
+            $("#ruc").val('');
+            $("#raz").val('');
+            $("#dire").val('');
+            $("#nompriE").val('');
+            $("#movilcre").val('');
+            $("#emailcre").val('');
+            $("#perscre").val('');
             $("#myModalCreate").modal({ backdrop: "static" }, { keyboard: false });
         });
 
@@ -109,6 +109,7 @@
                         var content = {};
                         content.message = 'El Cliente se registro correctamente ';
                         content.icon = 'icon la la-check';
+                        fnHC_AjaxSearchPersona_DNI(dni);
                         $.notify(content, prmNot3)
 
                         setTimeout(function () {
@@ -125,6 +126,96 @@
                });
         });
 
+        (typeheadHC = function () {
+            var substringMatcher = function (strs) {
+                return function findMatches(q, cb) {
+                    var matches, substringRegex;
+
+
+                    matches = [];
+
+
+                    var substrRegex = new RegExp(q, 'i');
+
+                    $.each(strs, function (i, str) {
+                        if (substrRegex.test(str)) {
+                            matches.push(str);
+                        }
+                    });
+
+                    cb(matches);
+                };
+            };
+
+            //Asigno el atributo al campo ya que la funcion le quita el focus
+            $('#datasearch').focus();
+        })();
+        //BUSCAR CLIENTES POR DNI
+
+         fnHC_AjaxSearchPersona_DNI = (dni) => {
+
+                let datasend = { dni: dni };
+
+                $.ajax({
+                    url: '@Url.Action("BusquedaXDNI", "Cliente")',
+                    data: JSON.stringify(datasend),
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    success: function (result) {
+
+                        console.log(JSON.stringify(result));
+
+                        if ($.isEmptyObject(result.cliente)) {
+                            $("#lbl_help_search").text("No se obtuvo resultados de la busqueda de Pacientes sin Historia Clinica");
+                            console.log('No se obtuvo resultados');
+                            $("#dvnomape").empty();
+                            $("#dvima").empty();
+                            $("#dvdni").empty();
+                            $("#dvid").empty();
+
+                            swal({
+                                title: 'Persona no Registrada',
+                                text: "¿Desea crear nuevo Cliente?",
+                                type: 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: 'Si, Crear!'
+
+                            }).then(function (result) {
+
+                                if (result.value) {
+
+                                    let dni = $("#datasearch").val().trim();
+                                    $("#dnicre").val(dni);
+                                    //datareniec();
+                                    $("#myModalCreate").modal("hide");
+                                    $("#ModalCreate").modal({ backdrop: "static" }, { keyboard: false });
+                                }
+                            });
+                        } else {
+                            console.table(result);
+                            let data = result.cliente;
+                            let i;
+
+                            $("#lbl_help_search").text("Resultados de la Busqueda de Pacientes sin Historia Clinica");
+
+                            $('#nompriE').val(data.apellidos);
+
+                            $('#dvid').val(result.persona.idCliente);
+
+                        }
+                    },
+                    error: function (error) {
+                        alert('Error!' + JSON.stringify(error));
+                    }
+                });
+
+        };
+
+        $("#fn").click(function () {
+            $('#datasearch').typeahead('destroy');
+
+        });
         function updateTableAjax() {
            $.ajax({
                 url:'@Url.Action("ListAjax", "Cliente")',
@@ -184,7 +275,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.idVenta)
             </td>
-            
+
             <td>
                 @Html.DisplayFor(modelItem => item.nombapells)
             </td>
@@ -207,6 +298,7 @@
 </table>
 
 @Html.Partial("~/Views/Venta/modalCrear.cshtml")
+@Html.Partial("~/Views/Cliente/modalCrear.cshtml")
 
 <script>
 
@@ -252,10 +344,10 @@
                 });
             }
 
-            
+
 
 
         });
 
-        
+
 </script>

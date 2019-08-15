@@ -95,7 +95,7 @@
 
                         </div>
                     </div>
-                    
+
                     <span class="m-accordion__item-title">
                         <font style="vertical-align: inherit;">
                             <font style="vertical-align: inherit;">
@@ -121,20 +121,25 @@
                             <span class="m-form__help"></span>
                         </div>
                         <br>
+                        <br>
+                        <br>
                         <button type="button" class="btn btn-success" id="btnAna" style='width:25px; height:30px'>+</button>
                         <br>
                         <br>
                         <br>
                         <div class="m-section">
                             <div class="m-section__content">
+                                <br>
+                                <br>
+
                                 <table class="table m-table m-table--head-bg-success">
                                     <thead>
                                         <tr>
                                             <th>
-                                                # Tipo
+                                                Tipo
                                             </th>
                                             <th>
-                                                # Producto
+                                                Producto
                                             </th>
                                             <th>
                                                 Nombre
@@ -200,7 +205,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </form>
             </div>
@@ -216,3 +221,40 @@
     </div>
 
 </div>
+
+<script>
+
+
+    function mainjsfunction(inputFieldValue) {
+        console.log(inputFieldValue);
+        //do something with input field value
+    }
+
+
+                                    $('#datasearch').on('input', function () {
+                                            if ($(this).val().trim() != '') {
+                                                //Añado clases y muestro el span de error
+                                                stateInput('data', 'false', 'true', 'danger', 'success');
+                                            } else {
+                                                stateInput('data', 'true', 'false', 'success', 'danger');
+                                            }
+                                    });
+
+
+                                     $('#nompriE').on('input', function () {
+                                                if ($(this).val().trim() != '') {
+                                                    //Añado clases y muestro el span de error
+                                                    stateInput('nom', 'false', 'true', 'danger', 'success');
+                                                } else {
+                                                    stateInput('nom', 'true', 'false', 'success', 'danger');
+                                                }
+                                     });
+
+                                     let stateInput = (id, success, danger, hassucess, hasdanger) => {
+                                            $(`#state-${id}-validate`).removeClass(`has-${hassucess}`);
+                                            $(`#state-${id}-validate`).addClass(`has-${hasdanger}`);
+                                            $(`#input_validate_${id}_${success}`).css(`visibility`, `hidden`);
+                                            $(`#input_validate_${id}_${danger}`).css(`visibility`, `visible`);
+                                  };
+</script>
+

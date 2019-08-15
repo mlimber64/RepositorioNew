@@ -45,5 +45,20 @@ namespace InranetSystem.Controllers
             }
 
         }
+        [HttpPost]
+        public JsonResult BusquedaXDNI(int dni)
+        {
+            Cliente cliente = new Cliente();
+            try
+            {
+                cliente = managerCliente.BuqquedaXDni(dni);
+                return Json(new { cliente });
+            }catch(Exception e)
+            {
+                string msg = "error";
+                return Json(new { msg });
+            }
+        }
+
     }
 }

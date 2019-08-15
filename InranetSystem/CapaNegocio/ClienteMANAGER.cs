@@ -19,5 +19,9 @@ namespace CapaNegocio
         {
             return data.RegistrarCliente(nombre,apepat,apemat,telef,dni);
         }
+        public Cliente BuqquedaXDni(int dni)
+        {
+            return data.BuqquedaXDni(dni);
+        }
     }
 }

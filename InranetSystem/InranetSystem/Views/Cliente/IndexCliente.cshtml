@@ -62,10 +62,10 @@
             $("#apmatcre").val('');
             $("#telcre").val('');
             $("#dnicre").val('');
-            $("#myModalCreate").modal({ backdrop: "static" }, { keyboard: false });
+            $("#ModalCreate").modal({ backdrop: "static" }, { keyboard: false });
         });
 
-        $("#myModalCreate").on("click", "#btnSendCreate", function () {
+        $("#ModalCreate").on("click", "#btnSendCreate", function () {
 
             //nombre, apepat, apemat, telef, dni
             let nombre = $("#nomcre").val();
@@ -95,7 +95,7 @@
                 success: function (result) {
                     console.log(JSON.stringify(result) + typeof result);
                     if (result) {
-                        $("#myModalCreate").modal("hide");
+                        $("#ModalCreate").modal("hide");
                         updateTableAjax();
                         var content = {};
                         content.message = 'El Cliente se registro correctamente ';

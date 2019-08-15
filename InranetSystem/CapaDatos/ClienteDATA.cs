@@ -98,5 +98,46 @@ namespace CapaDatos
                 cn = null;
             }
         }
+        //BUSCAR CLIENTE POR DNI
+        public Cliente BuqquedaXDni(int dni)
+        {
+            Cliente objeto = null;
+            try
+            {
+                conexion = cn.Conectar();
+                SqlCommand cmd = new SqlCommand("SP_DBTEST_BUSCARXDNI_CLIENTE", conexion);
+                
+
+                cmd.Parameters.AddWithValue("@filDNI",dni);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                dr = null;
+                conexion.Open();
+                dr = cmd.ExecuteReader();
+
+                while(dr.Read()){
+                    objeto = new Cliente();
+                    objeto.idCliente = Convert.ToInt32(dr["idCliente"]);
+                    objeto.apellidos = Convert.ToString(dr["apellidos"]);
+                    
+                }
+
+
+            }catch(Exception e)
+            {
+
+            }
+            finally
+            {
+                if(conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+
+                }
+                conexion.Dispose();
+            }
+            return objeto;
+        }
+
     }
 }
