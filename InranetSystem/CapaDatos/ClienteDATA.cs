@@ -125,7 +125,7 @@ namespace CapaDatos
 
             }catch(Exception e)
             {
-
+                errores = e.Message;
             }
             finally
             {

@@ -166,7 +166,7 @@
 
                         console.log(JSON.stringify(result));
 
-                        if ($.isEmptyObject(result.cliente)) {
+                        if ($.isEmptyObject(result.Cliente)) {
                             $("#lbl_help_search").text("No se obtuvo resultados de la busqueda de Pacientes sin Historia Clinica");
                             console.log('No se obtuvo resultados');
                             $("#dvnomape").empty();
@@ -194,7 +194,7 @@
                             });
                         } else {
                             console.table(result);
-                            let data = result.cliente;
+                            let data = result.Cliente;
                             let i;
 
                             $("#lbl_help_search").text("Resultados de la Busqueda de Pacientes sin Historia Clinica");

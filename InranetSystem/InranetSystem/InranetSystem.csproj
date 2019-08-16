@@ -133,6 +133,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios.asmx.cs">
+      <DependentUpon>Servicios.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -4931,6 +4935,7 @@
     <Content Include="Content\TemplateIndex\assets\vendors\base\fonts\summernote\summernote.eot" />
     <Content Include="Content\TemplateIndex\assets\vendors\base\fonts\summernote\summernote.ttf" />
     <Content Include="Content\TemplateIndex\assets\vendors\base\fonts\summernote\summernote.woff" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -4942,6 +4947,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Servicios.asmx" />
     <Content Include="Views\Plantilla\View.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
